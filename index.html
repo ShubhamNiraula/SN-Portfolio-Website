@@ -36,13 +36,14 @@
     .container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 40px;
     }
     .intro {
       border: 2px solid #0057e7;
       padding: 20px;
-      width: 60%;
+      width: 80%;
+      text-align: left;
     }
     .intro h2 {
       font-size: 30px;
@@ -52,20 +53,34 @@
       font-size: 20px;
       line-height: 1.6;
     }
-    .image-section img {
-      max-height: 500px;
-    }
-    .under-construction {
+    .loading-screen, .under-construction {
       display: none;
       text-align: center;
       padding: 40px;
       font-size: 22px;
       font-weight: bold;
     }
+    .spinner {
+      margin: 20px auto;
+      width: 50px;
+      height: 50px;
+      border: 6px solid #ccc;
+      border-top-color: #0057e7;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
-  <header>
+  <div class="loading-screen" id="loadingScreen">
+    <div class="spinner"></div>
+    Loading website...
+  </div>
+
+  <header style="display: none;">
     <h1>Er. Shubham Niraula</h1>
     <nav>
       <a href="#" class="active" onclick="showHome(event)">Home Page</a>
@@ -76,7 +91,7 @@
     </nav>
   </header>
 
-  <div class="container" id="home">
+  <div class="container" id="home" style="display: none;">
     <div class="intro">
       <h2>ER. SHUBHAM NIRAULA</h2>
       <p>
@@ -85,28 +100,39 @@
         Committed to driving clean, efficient, and impactful technologies.
       </p>
     </div>
-    <div class="image-section">
-      <img src="https://via.placeholder.com/300x500?text=Your+Photo+Here" alt="Shubham Niraula" />
-    </div>
   </div>
 
   <div class="under-construction" id="message">
+    <div class="spinner"></div>
     🚧 This section is under construction.<br />
     Er. Shubham Niraula is working on it.
   </div>
 
   <script>
+    window.onload = function () {
+      document.getElementById('loadingScreen').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('loadingScreen').style.display = 'none';
+        document.querySelector('header').style.display = 'flex';
+        document.getElementById('home').style.display = 'flex';
+      }, 2000);
+    };
+
     function showMessage(event) {
       event.preventDefault();
       document.getElementById('home').style.display = 'none';
       document.getElementById('message').style.display = 'block';
+      document.getElementById('message').innerHTML = '<div class="spinner"></div>Loading section...';
       setActive(event.target);
+      setTimeout(() => {
+        document.getElementById('message').innerHTML = '<div class="spinner"></div>🚧 This section is under construction.<br />Er. Shubham Niraula is working on it.';
+      }, 1500);
     }
 
     function showHome(event) {
       event.preventDefault();
-      document.getElementById('home').style.display = 'flex';
       document.getElementById('message').style.display = 'none';
+      document.getElementById('home').style.display = 'flex';
       setActive(event.target);
     }
 
