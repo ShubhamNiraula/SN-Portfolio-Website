@@ -2,56 +2,118 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shubham Niraula</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Er. Shubham Niraula</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #000;
+    }
+    header {
+      background-color: #000;
       color: #fff;
-      height: 100vh;
+      padding: 10px 20px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      padding: 6px 10px;
+    }
+    nav a.active {
+      background-color: #444;
+      border-radius: 4px;
     }
     .container {
-      max-width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+    .intro {
+      border: 2px solid #0057e7;
+      padding: 20px;
+      width: 60%;
     }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+    .intro h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
     }
-    .loader {
-      border: 5px solid rgba(255, 255, 255, 0.2);
-      border-top: 5px solid #fff;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto;
+    .intro p {
+      font-size: 20px;
+      line-height: 1.6;
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .image-section img {
+      max-height: 500px;
+    }
+    .under-construction {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      font-size: 22px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🚧 Website Under Construction</h1>
-    <p>Er. Shubham Niraula is working to make this website live soon!</p>
-    <div class="loader"></div>
+  <header>
+    <h1>Er. Shubham Niraula</h1>
+    <nav>
+      <a href="#" class="active" onclick="showHome(event)">Home Page</a>
+      <a href="#" onclick="showMessage(event)">Educaiton</a>
+      <a href="#" onclick="showMessage(event)">Professional Experience</a>
+      <a href="#" onclick="showMessage(event)">Blogs</a>
+      <a href="#" onclick="showMessage(event)">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container" id="home">
+    <div class="intro">
+      <h2>ER. SHUBHAM NIRAULA</h2>
+      <p>
+        Passionate electrical engineer specializing in sustainable energy solutions.
+        Experienced in the manufacturing industry and Renewable Energy.<br /><br />
+        Committed to driving clean, efficient, and impactful technologies.
+      </p>
+    </div>
+    <div class="image-section">
+      <img src="https://via.placeholder.com/300x500?text=Your+Photo+Here" alt="Shubham Niraula" />
+    </div>
   </div>
+
+  <div class="under-construction" id="message">
+    🚧 This section is under construction.<br />
+    Er. Shubham Niraula is working on it.
+  </div>
+
+  <script>
+    function showMessage(event) {
+      event.preventDefault();
+      document.getElementById('home').style.display = 'none';
+      document.getElementById('message').style.display = 'block';
+      setActive(event.target);
+    }
+
+    function showHome(event) {
+      event.preventDefault();
+      document.getElementById('home').style.display = 'flex';
+      document.getElementById('message').style.display = 'none';
+      setActive(event.target);
+    }
+
+    function setActive(element) {
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      element.classList.add('active');
+    }
+  </script>
 </body>
 </html>
