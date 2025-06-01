@@ -8,9 +8,18 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #fff;
+      background: linear-gradient(-45deg, #e3f2fd, #bbdefb, #90caf9, #64b5f6);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       color: #000;
     }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
     header {
       background-color: #000;
       color: #fff;
@@ -44,6 +53,8 @@
       padding: 20px;
       width: 80%;
       text-align: left;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
     }
     .intro h2 {
       font-size: 30px;
@@ -87,7 +98,7 @@
       <a href="#" onclick="showMessage(event)">Educaiton</a>
       <a href="#" onclick="showMessage(event)">Professional Experience</a>
       <a href="#" onclick="showMessage(event)">Blogs</a>
-      <a href="#" onclick="showMessage(event)">Contact</a>
+      <a href="#" onclick="showContact(event)">Contact</a>
     </nav>
   </header>
 
@@ -97,7 +108,8 @@
       <p>
         Passionate electrical engineer specializing in sustainable energy solutions.
         Experienced in the manufacturing industry and Renewable Energy.<br /><br />
-        Committed to driving clean, efficient, and impactful technologies.
+        Committed to driving clean, efficient, and impactful technologies.<br /><br />
+        <strong>🚧 Website is under construction.</strong>
       </p>
     </div>
   </div>
@@ -110,15 +122,27 @@
 
   <script>
     window.onload = function () {
-      document.getElementById('loadingScreen').style.display = 'block';
+      const loader = document.getElementById('loadingScreen');
+      loader.style.display = 'block';
       setTimeout(() => {
-        document.getElementById('loadingScreen').style.display = 'none';
+        loader.style.display = 'none';
         document.querySelector('header').style.display = 'flex';
         document.getElementById('home').style.display = 'flex';
-      }, 2000);
+      }, 1500);
     };
 
     function showMessage(event) {
+      event.preventDefault();
+      document.getElementById('home').style.display = 'none';
+      document.getElementById('message').style.display = 'block';
+      document.getElementById('message').innerHTML = '<div class="spinner"></div>Loading section...';
+      setActive(event.target);
+      setTimeout(() => {
+        document.getElementById('message').innerHTML = '<div class="spinner"></div>🚧 This section is under construction.<br />Er. Shubham Niraula is working on it.';
+      }, 1500);
+    }
+
+    function showContact(event) {
       event.preventDefault();
       document.getElementById('home').style.display = 'none';
       document.getElementById('message').style.display = 'block';
