@@ -3,14 +3,16 @@
 import { motion } from "framer-motion";
 import { RadioTower } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { about, profile } from "@/data/portfolio";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 export default function About() {
+  const { t } = useLanguage();
+  const about = t.about;
   return (
     <section className="content-section page-wrap" id="about">
       <SectionHeading
-        eyebrow="A LITTLE ABOUT ME"
-        title="Engineering with purpose."
+        eyebrow={about.eyebrow}
+        title={about.title}
         number="01"
       />
       <motion.div
@@ -26,7 +28,7 @@ export default function About() {
             <p key={paragraph}>{paragraph}</p>
           ))}
           <div className="about-location">
-            <RadioTower size={16} aria-hidden="true" /> {profile.location}
+            <RadioTower size={16} aria-hidden="true" /> {t.hero.location}
           </div>
         </div>
       </motion.div>

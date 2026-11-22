@@ -93,3 +93,17 @@ site and publishes the `out/` folder to GitHub Pages.
 - At your domain registrar, point the domain at GitHub Pages (A records
   185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153, and a
   `www` CNAME to `<your-username>.github.io`).
+
+## Editing the website (quick guide)
+
+| What | File |
+|---|---|
+| Page text (English + Russian) | `src/data/content.ts` |
+| Blog links on other sites, conference links, certificates, email | `src/data/site.ts` |
+| Your own blog posts | `content/blog/*.md` (see `content/blog/_how-to-write-a-post.md`) |
+| Certificate files | `public/certificates/` |
+| Pictures for blog posts | `public/blog/` |
+| Photo / CV | `public/profile.jpg`, `public/Shubham_Niraula_CV.pdf` |
+
+The contact form sends messages through FormSubmit (formsubmit.co) to the email in `src/data/site.ts`.
+The first message triggers an activation email — click "Activate" once.

@@ -3,27 +3,28 @@
 import { motion } from "framer-motion";
 import { Bot, Cpu, Layers, Sprout, Zap } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { interests } from "@/data/portfolio";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 const icons = [Sprout, Zap, Bot, Layers, Cpu];
 
 export default function Interests() {
+  const { t } = useLanguage();
   return (
     <section className="content-section interests-section" id="interests">
       <div className="interests-heading">
         <SectionHeading
-          eyebrow="WHAT I WANT TO RESEARCH"
-          title="Research interests."
+          eyebrow={t.interests.eyebrow}
+          title={t.interests.title}
           number="04"
         />
       </div>
       <div className="interests-grid">
-        {interests.map((item, index) => {
+        {t.interests.items.map((item, index) => {
           const Icon = icons[index % icons.length];
           return (
             <motion.article
               className="interest-card"
-              key={item.title}
+              key={index}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}

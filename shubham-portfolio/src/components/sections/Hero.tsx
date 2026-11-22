@@ -3,9 +3,12 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Cpu, Download, Zap } from "lucide-react";
-import { highlights, profile } from "@/data/portfolio";
+import { profile } from "@/data/site";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 export default function Hero() {
+  const { t, pick } = useLanguage();
+  const name = pick(profile.name);
   return (
     <>
       <section className="hero page-wrap" id="home" aria-labelledby="hero-title">
@@ -17,7 +20,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <span className="status-dot" aria-hidden="true" />
-            {profile.role}
+            {t.hero.role}
           </motion.div>
 
           <motion.h1
@@ -27,9 +30,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08 }}
           >
-            <span>{profile.name.split(" ")[0]} </span>
+            <span>{name.split(" ")[0]} </span>
             <span className="name-accent">
-              {profile.name.split(" ").slice(1).join(" ")}
+              {name.split(" ").slice(1).join(" ")}
             </span>
           </motion.h1>
 
@@ -39,9 +42,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.18 }}
           >
-            {profile.tagline.firstLine}
+            {t.hero.taglineFirst}
             <br />
-            <span>{profile.tagline.secondLine}</span>
+            <span>{t.hero.taglineSecond}</span>
           </motion.p>
 
           <motion.p
@@ -50,7 +53,7 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            {profile.description}
+            {t.hero.description}
           </motion.p>
 
           <motion.div
@@ -60,22 +63,22 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <a className="button button-primary" href="#projects">
-              Explore projects <ArrowUpRight size={17} aria-hidden="true" />
+              {t.hero.explore} <ArrowUpRight size={17} aria-hidden="true" />
             </a>
             <a className="button button-ghost" href="#experience">
-              View experience <ArrowDown size={16} aria-hidden="true" />
+              {t.hero.viewExperience} <ArrowDown size={16} aria-hidden="true" />
             </a>
             <a className="button button-ghost" href={profile.cv} download>
-              Download CV <Download size={16} aria-hidden="true" />
+              {t.hero.downloadCv} <Download size={16} aria-hidden="true" />
             </a>
           </motion.div>
 
           <div className="hero-meta">
             <span>
               <span className="meta-line" aria-hidden="true" />
-              BASED IN {profile.location}
+              {t.hero.basedIn} {t.hero.location}
             </span>
-            <span>01 — 07</span>
+            <span>01 — 08</span>
           </div>
         </div>
 
@@ -94,24 +97,24 @@ export default function Hero() {
             </div>
             <Image
               src={profile.image}
-              alt={`Portrait of ${profile.name}`}
+              alt={t.hero.portraitAlt}
               width={700}
               height={900}
               priority
               className="profile-photo"
             />
             <div className="photo-caption">
-              <span>{profile.name}</span>
-              <span>ENGINEER</span>
+              <span>{name}</span>
+              <span>{t.hero.photoCaption}</span>
             </div>
           </div>
           <div className="orbit orbit-one" aria-hidden="true" />
           <div className="orbit orbit-two" aria-hidden="true" />
           <div className="floating-chip chip-top animate-float-slow">
-            <Zap size={14} aria-hidden="true" /> POWER SYSTEMS
+            <Zap size={14} aria-hidden="true" /> {t.hero.chipPower}
           </div>
           <div className="floating-chip chip-bottom animate-float-slow-reverse">
-            <Cpu size={14} aria-hidden="true" /> AUTOMATION
+            <Cpu size={14} aria-hidden="true" /> {t.hero.chipAutomation}
           </div>
           <div className="visual-index">SN — 2026</div>
         </motion.div>
@@ -120,7 +123,7 @@ export default function Hero() {
       </section>
 
       <section className="stats-strip page-wrap" aria-label="Highlights">
-        {highlights.map((item) => (
+        {t.highlights.map((item) => (
           <div key={item.label}>
             <strong>{item.value}</strong>
             <span>{item.label}</span>

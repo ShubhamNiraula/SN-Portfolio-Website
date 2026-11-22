@@ -1,22 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu, Mic } from "lucide-react";
+import { ArrowUpRight, Cpu, Mic } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { presentations, projects } from "@/data/portfolio";
+import { presentations } from "@/data/site";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 export default function Projects() {
+  const { t, pick } = useLanguage();
+  const projects = t.projects.items;
   return (
     <section className="content-section page-wrap" id="projects">
       <SectionHeading
-        eyebrow="SELECTED WORK"
-        title="Projects."
+        eyebrow={t.projects.eyebrow}
+        title={t.projects.title}
         number="05"
       />
       {projects.map((project, index) => (
         <motion.article
           className="project-card"
-          key={project.title}
+          key={index}
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -53,13 +56,18 @@ export default function Projects() {
       ))}
 
       <div className="presentations">
-        <p className="eyebrow">CONFERENCE PRESENTATIONS</p>
+        <p className="eyebrow">{t.projects.presentationsTitle}</p>
         {presentations.map((item) => (
-          <div className="presentation-item" key={item.title}>
+          <div className="presentation-item" key={item.year + item.title.en}>
             <Mic size={18} aria-hidden="true" />
             <div>
-              <h3>{item.title}</h3>
-              <p>{item.venue}</p>
+              <h3>{pick(item.title)}</h3>
+              <p>{pick(item.venue)}</p>
+              {item.url && (
+                <a className="inline-link" href={item.url} target="_blank" rel="noreferrer">
+                  {t.projects.viewConference} <ArrowUpRight size={13} aria-hidden="true" />
+                </a>
+              )}
             </div>
             <span>{item.year}</span>
           </div>

@@ -2,7 +2,11 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import type { Skill } from "@/data/portfolio";
+
+export type Skill = {
+  name: string;
+  group: string;
+};
 
 type SkillCardProps = {
   skill: Skill;
