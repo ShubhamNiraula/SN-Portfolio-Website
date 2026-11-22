@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#071321"/>
+  <g fill="none" stroke="#69baff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- transmission tower -->
+    <path d="M32 7 L22 57 M32 7 L42 57"/>
+    <path d="M14 19 H50"/>
+    <path d="M18 30 H46"/>
+    <path d="M26.3 36 L37.7 47 M37.7 36 L26.3 47"/>
+    <path d="M28.4 19 L35.6 30 M35.6 19 L28.4 30"/>
+    <path d="M14 19 v4 M50 19 v4 M18 30 v4 M46 30 v4"/>
+  </g>
+  <path d="M35 3 L29 13 h4 l-2 8 l7 -11 h-4.5 z" fill="#ffd15c"/>
+</svg>

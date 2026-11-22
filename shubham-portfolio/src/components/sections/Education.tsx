@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, GraduationCap } from "lucide-react";
+import { ArrowUpRight, Award, GraduationCap } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { useLanguage } from "@/i18n/LanguageProvider";
 
@@ -30,7 +30,11 @@ export default function Education() {
               <GraduationCap size={21} aria-hidden="true" />
             </div>
             <p className="eyebrow">{item.date}</p>
-            <h3>{item.institution}</h3>
+            <h3>
+              <a className="name-link" href={item.url} target="_blank" rel="noreferrer">
+                {item.institution} <ArrowUpRight size={18} aria-hidden="true" />
+              </a>
+            </h3>
             <p className="education-subtitle">{item.qualification}</p>
             <p className="education-note">{item.description}</p>
             <span className="card-watermark" aria-hidden="true">

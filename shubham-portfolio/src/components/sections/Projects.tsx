@@ -55,19 +55,29 @@ export default function Projects() {
         </motion.article>
       ))}
 
-      <div className="presentations">
+      <div className="presentations" id="presentations">
         <p className="eyebrow">{t.projects.presentationsTitle}</p>
         {presentations.map((item) => (
           <div className="presentation-item" key={item.year + item.title.en}>
             <Mic size={18} aria-hidden="true" />
             <div>
+              <span className={`talk-badge${item.kind === "speaker" ? " speaker" : ""}`}>
+                {item.kind === "speaker" ? t.projects.speaker : t.projects.talk}
+              </span>
               <h3>{pick(item.title)}</h3>
               <p>{pick(item.venue)}</p>
-              {item.url && (
-                <a className="inline-link" href={item.url} target="_blank" rel="noreferrer">
-                  {t.projects.viewConference} <ArrowUpRight size={13} aria-hidden="true" />
-                </a>
-              )}
+              <div className="talk-links">
+                {item.url && (
+                  <a className="inline-link" href={item.url} target="_blank" rel="noreferrer">
+                    {t.projects.viewConference} <ArrowUpRight size={13} aria-hidden="true" />
+                  </a>
+                )}
+                {item.paperUrl && (
+                  <a className="inline-link" href={item.paperUrl} target="_blank" rel="noreferrer">
+                    {t.projects.viewPaper} <ArrowUpRight size={13} aria-hidden="true" />
+                  </a>
+                )}
+              </div>
             </div>
             <span>{item.year}</span>
           </div>

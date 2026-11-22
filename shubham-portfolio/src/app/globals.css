@@ -513,3 +513,43 @@ a.certificate-card:hover { border-color: var(--blue); transform: translateY(-3px
   .post-page { padding-top: 40px; }
   .post-body { font-size: 15px; }
 }
+
+/* ---------- Clickable highlights ---------- */
+.stats-strip .stat-link { display: flex; flex-direction: column; gap: 7px; padding-left: 25px; border-left: 1px solid var(--line); transition: background .2s; }
+.stats-strip .stat-link:hover strong { color: var(--blue-bright); }
+.stats-strip .stat-link:hover span { color: var(--muted); }
+
+/* ---------- Links on company / university names ---------- */
+.name-link { display: inline-flex; align-items: center; gap: 6px; color: inherit; transition: color .2s; }
+.name-link svg { color: var(--blue); opacity: .7; transition: transform .2s, opacity .2s; }
+.name-link:hover { color: var(--blue-bright); }
+.name-link:hover svg { opacity: 1; transform: translate(2px, -2px); }
+.education-card h3 .name-link { position: relative; z-index: 1; }
+.company-place { color: var(--dim); }
+
+/* ---------- Solar projects ---------- */
+.solar-projects { margin-top: 44px; scroll-margin-top: 100px; }
+.solar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.solar-card { display: block; padding: 24px; background: var(--panel); border: 1px solid var(--line); transition: border-color .2s, transform .2s; }
+a.solar-card:hover { border-color: var(--blue); transform: translateY(-3px); }
+.solar-top { display: flex; justify-content: space-between; align-items: center; color: #ffd15c; }
+.solar-top strong { color: var(--blue); font: 600 13px var(--mono); }
+.solar-card h3 { font-size: 18px; margin: 18px 0 6px; }
+.solar-location { color: var(--dim); font: 10px var(--mono); letter-spacing: .06em; text-transform: uppercase; margin: 0 0 12px; }
+.solar-role { color: var(--muted); font-size: 13px; margin: 0; }
+
+/* ---------- Talk badges ---------- */
+.presentations { scroll-margin-top: 100px; }
+.talk-badge { display: inline-block; margin-bottom: 8px; padding: 3px 8px; font: 600 9px var(--mono); letter-spacing: .1em; color: var(--muted); border: 1px solid var(--line); }
+.talk-badge.speaker { color: #061321; background: #ffd15c; border-color: #ffd15c; }
+.talk-links { display: flex; flex-wrap: wrap; gap: 18px; }
+#certificates, #blog, #interests { scroll-margin-top: 90px; }
+
+@media (max-width: 640px) {
+  .solar-grid { grid-template-columns: 1fr; }
+  .stats-strip .stat-link { padding-left: 14px; }
+}
+.stats-strip .stat-link:first-child { border-left: 0; padding-left: 0; }
+@media (max-width: 640px) {
+  .stats-strip .stat-link:nth-child(3) { border-left: 0; padding-left: 0; }
+}

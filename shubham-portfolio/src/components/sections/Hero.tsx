@@ -68,7 +68,7 @@ export default function Hero() {
             <a className="button button-ghost" href="#experience">
               {t.hero.viewExperience} <ArrowDown size={16} aria-hidden="true" />
             </a>
-            <a className="button button-ghost" href={profile.cv} download>
+            <a className="button button-ghost" href={pick(profile.cv)} download>
               {t.hero.downloadCv} <Download size={16} aria-hidden="true" />
             </a>
           </motion.div>
@@ -124,10 +124,10 @@ export default function Hero() {
 
       <section className="stats-strip page-wrap" aria-label="Highlights">
         {t.highlights.map((item) => (
-          <div key={item.label}>
+          <a key={item.label} href={item.href} className="stat-link">
             <strong>{item.value}</strong>
             <span>{item.label}</span>
-          </div>
+          </a>
         ))}
       </section>
     </>

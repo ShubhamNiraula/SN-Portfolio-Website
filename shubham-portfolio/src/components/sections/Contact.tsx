@@ -8,7 +8,7 @@ import { useLanguage } from "@/i18n/LanguageProvider";
 type Status = "idle" | "sending" | "sent" | "error";
 
 export default function Contact() {
-  const { t, lang } = useLanguage();
+  const { t, lang, pick } = useLanguage();
   const c = t.contact;
   const [status, setStatus] = useState<Status>("idle");
 
@@ -64,7 +64,7 @@ export default function Contact() {
           </a>
 
           <div className="contact-actions">
-            <a className="button button-primary" href={profile.cv} download>
+            <a className="button button-primary" href={pick(profile.cv)} download>
               {t.hero.downloadCv} <Download size={16} aria-hidden="true" />
             </a>
             <a className="button button-ghost" href={`mailto:${profile.academicEmail}`}>

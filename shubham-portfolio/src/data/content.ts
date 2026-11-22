@@ -36,10 +36,10 @@ const en = {
     portraitAlt: "Portrait of Shubham Niraula"
   },
   highlights: [
-    { value: "02+", label: "YEARS OF INDUSTRY EXPERIENCE" },
-    { value: "25 MW", label: "UTILITY-SCALE SOLAR PV" },
-    { value: "03", label: "CONFERENCE PRESENTATIONS" },
-    { value: "04", label: "LANGUAGES" }
+    { value: "02+", label: "YEARS OF INDUSTRY EXPERIENCE", href: "#experience" },
+    { value: "45 MW", label: "UTILITY-SCALE SOLAR PV", href: "#solar-projects" },
+    { value: "04", label: "CONFERENCE TALKS", href: "#presentations" },
+    { value: "06", label: "CERTIFICATES", href: "#certificates" }
   ],
   about: {
     eyebrow: "A LITTLE ABOUT ME",
@@ -48,27 +48,42 @@ const en = {
       "I'm Shubham — an electrical and power engineer working where renewable energy, power systems and intelligent control meet.",
     paragraphs: [
       "I'm a Master's student in Electrical and Power Engineering at ITMO University, building on a foundation in power systems, renewable energy and control engineering from Kathmandu University.",
-      "Before ITMO, I worked on the electrical design, documentation and commissioning support of 10 MW and 15 MW solar PV plants, and on power transformers and distribution equipment up to 33 kV.",
+      "Before ITMO, I worked on utility-scale solar PV plants totalling 45 MW in Nepal — design, documentation and commissioning support — took part in initial assessments of smaller projects, and worked with power transformers and distribution equipment up to 33 kV.",
       "I'm looking for Ph.D. research opportunities in renewable energy integration, intelligent control and automation — building energy-efficient, sustainable technologies for real-world use."
     ]
   },
   experience: {
     eyebrow: "WHERE I'VE WORKED",
     title: "Experience.",
+    solarTitle: "UTILITY-SCALE SOLAR PROJECTS",
+    projectWebsite: "Project website",
     items: [
       {
         role: "Design Engineer",
-        company: "Renergo Developers Pvt. Ltd. — Noida, India (Hybrid)",
+        company: "REnergo Developers Pvt. Ltd.",
+        companyUrl: "https://renergo.in",
+        place: "Noida, India (Hybrid)",
         date: "JUL 2024 — SEP 2025",
         description:
-          "Designed electrical layouts and PV table arrangements for utility-scale solar plants, including the 10 MW and 15 MW Pashupati Renewables projects. Performed substation earthing calculations (IEEE Std 80), prepared BOMs and specifications, took part in inspection, testing and commissioning, and used AutoCAD and PVsyst for design and energy forecasting."
+          "Designed electrical layouts and PV table arrangements for utility-scale solar plants, including the 10 MW and 15 MW Pashupati Renewables projects, and took part in initial assessments of smaller projects. Performed substation earthing calculations (IEEE Std 80), prepared BOMs and specifications, took part in inspection, testing and commissioning, and used AutoCAD and PVsyst for design and energy forecasting."
       },
       {
         role: "Assistant Engineer",
-        company: "Nepal Ekarat Engineering Co. Pvt. Ltd. — Nepal",
+        company: "Nepal Ekarat Engineering Co. Pvt. Ltd. (NEEK)",
+        companyUrl: "https://neek-transformer.com",
+        place: "Nepal",
         date: "SEP 2023 — JUN 2024",
         description:
           "Provided technical support for power transformers, on-load tap changers (OLTCs) and distribution equipment, and helped troubleshoot transformer issues in systems up to 33 kV."
+      },
+      {
+        role: "Graduate Engineer Trainee — O&M",
+        company: "Golyan Group (Pure Energy)",
+        companyUrl: "",
+        place: "Nepalgunj, Banke, Nepal",
+        date: "JUL 2023 — SEP 2023",
+        description:
+          "Operation and maintenance (O&M) trainee at Pure Energy's two 10 MW utility-scale solar PV plants in Khajura, Banke — Golyan Group's 20 MW solar power facility."
       }
     ]
   },
@@ -80,6 +95,7 @@ const en = {
         status: "01 / CURRENT",
         date: "2026 — 2028 (EXPECTED)",
         institution: "ITMO University",
+        url: "https://en.itmo.ru/",
         qualification: "MS, Electrical and Power Engineering",
         description:
           "Saint Petersburg, Russia. Master's program focused on electrical power systems, renewable energy and control engineering.",
@@ -90,6 +106,7 @@ const en = {
         status: "02 / COMPLETED",
         date: "2018 — 2023",
         institution: "Kathmandu University",
+        url: "https://ku.edu.np/",
         qualification: "BE, Electrical and Electronics Engineering (Power & Control)",
         description:
           "School of Engineering, Dhulikhel, Nepal. Undergraduate thesis on PLC-based home automation.",
@@ -143,8 +160,11 @@ const en = {
         tags: ["PLC", "LADDER LOGIC", "SENSORS", "HMI", "IOT"]
       }
     ],
-    presentationsTitle: "CONFERENCE PRESENTATIONS",
-    viewConference: "Conference"
+    presentationsTitle: "CONFERENCE TALKS & SPEAKING",
+    viewConference: "Conference website",
+    viewPaper: "Read the paper",
+    speaker: "SPEAKER",
+    talk: "PRESENTATION"
   },
   blog: {
     eyebrow: "WRITING",
@@ -240,10 +260,10 @@ const ru: Content = {
     portraitAlt: "Фотография Шубхама Нираулы"
   },
   highlights: [
-    { value: "02+", label: "ГОДА ОПЫТА В ОТРАСЛИ" },
-    { value: "25 МВт", label: "КРУПНЫЕ СЭС" },
-    { value: "03", label: "ДОКЛАДА НА КОНФЕРЕНЦИЯХ" },
-    { value: "04", label: "ЯЗЫКА" }
+    { value: "02+", label: "ГОДА ОПЫТА В ОТРАСЛИ", href: "#experience" },
+    { value: "45 МВт", label: "КРУПНЫЕ СЭС", href: "#solar-projects" },
+    { value: "04", label: "ВЫСТУПЛЕНИЯ НА КОНФЕРЕНЦИЯХ", href: "#presentations" },
+    { value: "06", label: "СЕРТИФИКАТОВ", href: "#certificates" }
   ],
   about: {
     eyebrow: "НЕМНОГО ОБО МНЕ",
@@ -252,27 +272,42 @@ const ru: Content = {
       "Я Шубхам — инженер-электроэнергетик. Меня интересует то, где встречаются возобновляемая энергетика, энергосистемы и интеллектуальное управление.",
     paragraphs: [
       "Я учусь в магистратуре Университета ИТМО по направлению «Электроэнергетика и электротехника». Базу в энергосистемах, возобновляемой энергетике и теории управления я получил в Университете Катманду.",
-      "До ИТМО я занимался электрическим проектированием, документацией и пусконаладкой солнечных электростанций мощностью 10 МВт и 15 МВт, а также работал с силовыми трансформаторами и распределительным оборудованием до 33 кВ.",
+      "До ИТМО я работал над крупными солнечными электростанциями общей мощностью 45 МВт в Непале — проектирование, документация и пусконаладка, — участвовал в предварительной оценке небольших проектов, а также работал с силовыми трансформаторами и распределительным оборудованием до 33 кВ.",
       "Я ищу возможности для исследований в аспирантуре в области интеграции ВИЭ, интеллектуального управления и автоматизации — чтобы создавать энергоэффективные и устойчивые технологии для реальной жизни."
     ]
   },
   experience: {
     eyebrow: "ГДЕ Я РАБОТАЛ",
     title: "Опыт работы.",
+    solarTitle: "КРУПНЫЕ СОЛНЕЧНЫЕ ЭЛЕКТРОСТАНЦИИ",
+    projectWebsite: "Сайт проекта",
     items: [
       {
         role: "Инженер-проектировщик",
-        company: "Renergo Developers Pvt. Ltd. — Нойда, Индия (гибридный формат)",
+        company: "REnergo Developers Pvt. Ltd.",
+        companyUrl: "https://renergo.in",
+        place: "Нойда, Индия (гибридный формат)",
         date: "ИЮЛ 2024 — СЕН 2025",
         description:
-          "Проектировал электрические схемы и раскладку столов ФЭМ для крупных солнечных электростанций, в том числе для проектов Pashupati Renewables мощностью 10 МВт и 15 МВт. Выполнял расчёты заземления подстанций (IEEE Std 80), готовил спецификации и ведомости материалов, участвовал в инспекциях, испытаниях и пусконаладке, работал в AutoCAD и PVsyst."
+          "Проектировал электрические схемы и раскладку столов ФЭМ для крупных солнечных электростанций, в том числе для проектов Pashupati Renewables мощностью 10 МВт и 15 МВт, участвовал в предварительной оценке небольших проектов. Выполнял расчёты заземления подстанций (IEEE Std 80), готовил спецификации и ведомости материалов, участвовал в инспекциях, испытаниях и пусконаладке, работал в AutoCAD и PVsyst."
       },
       {
         role: "Младший инженер",
-        company: "Nepal Ekarat Engineering Co. Pvt. Ltd. — Непал",
+        company: "Nepal Ekarat Engineering Co. Pvt. Ltd. (NEEK)",
+        companyUrl: "https://neek-transformer.com",
+        place: "Непал",
         date: "СЕН 2023 — ИЮН 2024",
         description:
           "Оказывал техническую поддержку по силовым трансформаторам, устройствам РПН и распределительному оборудованию, помогал устранять неисправности трансформаторов в сетях до 33 кВ."
+      },
+      {
+        role: "Инженер-стажёр по эксплуатации и обслуживанию (O&M)",
+        company: "Golyan Group (Pure Energy)",
+        companyUrl: "",
+        place: "Непалгандж, Банке, Непал",
+        date: "ИЮЛ 2023 — СЕН 2023",
+        description:
+          "Стажировка в службе эксплуатации и технического обслуживания двух солнечных электростанций Pure Energy мощностью по 10 МВт в Хаджуре (Банке) — СЭС Golyan Group общей мощностью 20 МВт."
       }
     ]
   },
@@ -284,6 +319,7 @@ const ru: Content = {
         status: "01 / СЕЙЧАС",
         date: "2026 — 2028 (ОЖИДАЕТСЯ)",
         institution: "Университет ИТМО",
+        url: "https://itmo.ru/",
         qualification: "Магистратура, «Электроэнергетика и электротехника»",
         description:
           "Санкт-Петербург, Россия. Программа с фокусом на электроэнергетические системы, возобновляемую энергетику и теорию управления.",
@@ -294,6 +330,7 @@ const ru: Content = {
         status: "02 / ЗАВЕРШЕНО",
         date: "2018 — 2023",
         institution: "Университет Катманду",
+        url: "https://ku.edu.np/",
         qualification: "Бакалавриат, электротехника и электроника (энергетика и управление)",
         description:
           "Инженерная школа, Дхуликхел, Непал. Выпускная работа — домашняя автоматизация на основе ПЛК.",
@@ -347,8 +384,11 @@ const ru: Content = {
         tags: ["ПЛК", "LADDER", "ДАТЧИКИ", "HMI", "IOT"]
       }
     ],
-    presentationsTitle: "ДОКЛАДЫ НА КОНФЕРЕНЦИЯХ",
-    viewConference: "Конференция"
+    presentationsTitle: "ДОКЛАДЫ И ВЫСТУПЛЕНИЯ",
+    viewConference: "Сайт конференции",
+    viewPaper: "Читать статью",
+    speaker: "СПИКЕР",
+    talk: "ДОКЛАД"
   },
   blog: {
     eyebrow: "ПУБЛИКАЦИИ",
