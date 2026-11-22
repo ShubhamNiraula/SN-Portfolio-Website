@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu } from "lucide-react";
+import { Cpu, Mic } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { projects } from "@/data/portfolio";
+import { presentations, projects } from "@/data/portfolio";
 
 export default function Projects() {
   return (
@@ -11,7 +11,7 @@ export default function Projects() {
       <SectionHeading
         eyebrow="SELECTED WORK"
         title="Projects."
-        number="04"
+        number="05"
       />
       {projects.map((project, index) => (
         <motion.article
@@ -51,6 +51,20 @@ export default function Projects() {
           </div>
         </motion.article>
       ))}
+
+      <div className="presentations">
+        <p className="eyebrow">CONFERENCE PRESENTATIONS</p>
+        {presentations.map((item) => (
+          <div className="presentation-item" key={item.title}>
+            <Mic size={18} aria-hidden="true" />
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.venue}</p>
+            </div>
+            <span>{item.year}</span>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

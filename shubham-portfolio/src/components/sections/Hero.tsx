@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Cpu, Zap } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Cpu, Download, Zap } from "lucide-react";
 import { highlights, profile } from "@/data/portfolio";
 
 export default function Hero() {
@@ -65,6 +65,9 @@ export default function Hero() {
             <a className="button button-ghost" href="#experience">
               View experience <ArrowDown size={16} aria-hidden="true" />
             </a>
+            <a className="button button-ghost" href={profile.cv} download>
+              Download CV <Download size={16} aria-hidden="true" />
+            </a>
           </motion.div>
 
           <div className="hero-meta">
@@ -72,7 +75,7 @@ export default function Hero() {
               <span className="meta-line" aria-hidden="true" />
               BASED IN {profile.location}
             </span>
-            <span>01 — 06</span>
+            <span>01 — 07</span>
           </div>
         </div>
 

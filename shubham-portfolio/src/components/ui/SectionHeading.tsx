@@ -9,7 +9,7 @@ export default function SectionHeading({
   eyebrow,
   title,
   number,
-  total = "06"
+  total = "07"
 }: SectionHeadingProps) {
   return (
     <div className="section-heading">

@@ -8,7 +8,7 @@ export default function Skills() {
       <SectionHeading
         eyebrow="WHAT I WORK WITH"
         title="Skills & capabilities."
-        number="05"
+        number="06"
       />
       <div className="skills-grid">
         {skills.map((skill, index) => (
