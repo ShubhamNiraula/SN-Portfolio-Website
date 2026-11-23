@@ -223,6 +223,270 @@ export const certificates: Certificate[] = [
   }
 ];
 
+/* ---------- "Currently" box (update whenever things change) ---------- */
+export const nowUpdated = "2026-11"; // year-month of your last update
+export const nowItems: Localized[] = [
+  {
+    en: "Preparing my Master's thesis on solid-state transformers for weak and rural grids",
+    ru: "Готовлю магистерскую диссертацию о твердотельных трансформаторах для слабых и сельских сетей"
+  },
+  {
+    en: "Volunteering at the VI Congress of Young Scientists, Saint Petersburg (December 2026)",
+    ru: "Волонтёр VI Конгресса молодых учёных, Санкт-Петербург (декабрь 2026)"
+  },
+  {
+    en: "Writing blog posts for ITMO.NEWS",
+    ru: "Пишу блог для ITMO.NEWS"
+  }
+];
+
+/* ---------- Publications ---------- */
+export type Publication = { title: Localized; venue: Localized; year: string; url: string };
+export const publications: Publication[] = [
+  {
+    title: {
+      en: "Influence of Personal Factors on Learning Russian: Research and Findings",
+      ru: "Влияние личностных факторов на изучение русского языка: исследования и выводы"
+    },
+    venue: {
+      en: "Proceedings of the XV Congress of ITMO Young Scientists",
+      ru: "Сборник трудов XV Конгресса молодых учёных ИТМО"
+    },
+    year: "2026",
+    url: "https://kmu.itmo.ru/digests/article/17763"
+  }
+];
+
+/* ---------- Volunteering & leadership ---------- */
+export type Activity = { title: Localized; role: Localized; place: Localized; date: string; url: string };
+export const activities: Activity[] = [
+  {
+    title: { en: "VI Congress of Young Scientists", ru: "VI Конгресс молодых учёных" },
+    role: { en: "Volunteer", ru: "Волонтёр" },
+    place: { en: "Saint Petersburg", ru: "Санкт-Петербург" },
+    date: "2026-12",
+    url: ""
+  },
+  {
+    title: { en: "International youth forum — team project", ru: "Международный молодёжный форум — командный проект" },
+    role: {
+      en: "International team project on promoting tourism through international cooperation",
+      ru: "Международный командный проект о развитии туризма через международное сотрудничество"
+    },
+    place: { en: "Gatchina, Leningrad region", ru: "Гатчина, Ленинградская область" },
+    date: "2026-10",
+    url: ""
+  },
+  {
+    title: { en: "International Arctic Volunteer Corps", ru: "Международный арктический волонтёрский корпус" },
+    role: {
+      en: "Builders team — built an access ramp at the district administration building",
+      ru: "Строительная команда — построили пандус у здания администрации"
+    },
+    place: { en: "Beloyarsky district, Khanty-Mansi region", ru: "Белоярский район, ХМАО — Югра" },
+    date: "2026-08",
+    url: "https://news.itmo.ru/en/blog/429/"
+  },
+  {
+    title: { en: "L. A. Verbitskaya International Creative Competition", ru: "Международный творческий конкурс имени Л. А. Вербицкой" },
+    role: { en: "Participant — artistic reading of Russian poetry", ru: "Участник — художественное чтение стихов русских поэтов" },
+    place: { en: "Saint Petersburg State University", ru: "СПбГУ" },
+    date: "2026",
+    url: ""
+  },
+  {
+    title: {
+      en: "VI International Olympiad for Foreign Students of Preparatory Faculties",
+      ru: "VI Международная олимпиада для иностранных обучающихся подготовительных факультетов"
+    },
+    role: { en: "Participant", ru: "Участник" },
+    place: { en: "Kazan", ru: "Казань" },
+    date: "2026",
+    url: ""
+  }
+];
+
+/* ---------- My journey (map) ----------
+ * lon/lat = position on the map. "from" draws a route from another stop's id.
+ */
+export type JourneyStop = {
+  id: string;
+  name: Localized;
+  country: Localized;
+  note: Localized;
+  lon: number;
+  lat: number;
+  from?: string;
+};
+export const journey: JourneyStop[] = [
+  {
+    id: "ktm", lon: 85.3, lat: 27.7,
+    name: { en: "Kathmandu & Dhulikhel", ru: "Катманду и Дхуликхел" },
+    country: { en: "Nepal", ru: "Непал" },
+    note: { en: "Home · Kathmandu University · NEEK", ru: "Дом · Университет Катманду · NEEK" }
+  },
+  {
+    id: "npj", lon: 81.6, lat: 28.05, from: "ktm",
+    name: { en: "Nepalgunj", ru: "Непалгандж" },
+    country: { en: "Nepal", ru: "Непал" },
+    note: { en: "Pure Energy solar plants", ru: "СЭС Pure Energy" }
+  },
+  {
+    id: "noida", lon: 77.4, lat: 28.6, from: "ktm",
+    name: { en: "Noida", ru: "Нойда" },
+    country: { en: "India", ru: "Индия" },
+    note: { en: "Design Engineer, REnergo", ru: "Инженер-проектировщик, REnergo" }
+  },
+  {
+    id: "china", lon: 104.0, lat: 33.0, from: "ktm",
+    name: { en: "China", ru: "Китай" },
+    country: { en: "China", ru: "Китай" },
+    note: { en: "Travel", ru: "Поездка" }
+  },
+  {
+    id: "spb", lon: 30.3, lat: 59.9, from: "ktm",
+    name: { en: "Saint Petersburg & Gatchina", ru: "Санкт-Петербург и Гатчина" },
+    country: { en: "Russia", ru: "Россия" },
+    note: { en: "ITMO University · forums", ru: "Университет ИТМО · форумы" }
+  },
+  {
+    id: "kazan", lon: 49.1, lat: 55.8, from: "spb",
+    name: { en: "Kazan", ru: "Казань" },
+    country: { en: "Russia", ru: "Россия" },
+    note: { en: "International Olympiad", ru: "Международная олимпиада" }
+  },
+  {
+    id: "hmao", lon: 67.5, lat: 62.5, from: "spb",
+    name: { en: "Khanty-Mansiysk & Beloyarsky", ru: "Ханты-Мансийск и Белоярский" },
+    country: { en: "Russia", ru: "Россия" },
+    note: { en: "Arctic Volunteer Corps", ru: "Арктический волонтёрский корпус" }
+  }
+];
+
+/* ---------- Quotes at the top of the page ----------
+ * They change in random order every ~10 seconds. Add, remove or edit freely.
+ */
+export type Quote = { text: Localized; author: Localized };
+
+export const quotes: Quote[] = [
+  {
+    text: {
+      en: "Scientists study the world as it is; engineers create the world that has never been.",
+      ru: "Учёные изучают мир таким, какой он есть; инженеры создают мир, которого никогда не было."
+    },
+    author: { en: "Theodore von Kármán", ru: "Теодор фон Карман" }
+  },
+  {
+    text: {
+      en: "Engineering is the art of directing the great sources of power in nature for the use and convenience of man.",
+      ru: "Инженерия — это искусство направлять великие источники силы природы на пользу и удобство человека."
+    },
+    author: { en: "Thomas Tredgold, 1828", ru: "Томас Тредголд, 1828" }
+  },
+  {
+    text: {
+      en: "I'd put my money on the sun and solar energy. What a source of power!",
+      ru: "Я бы сделал ставку на солнце и солнечную энергию. Какой источник силы!"
+    },
+    author: { en: "Thomas Edison, 1931", ru: "Томас Эдисон, 1931" }
+  },
+  {
+    text: {
+      en: "Nothing is too wonderful to be true, if it be consistent with the laws of nature.",
+      ru: "Нет ничего слишком чудесного, чтобы быть правдой, если это согласуется с законами природы."
+    },
+    author: { en: "Michael Faraday", ru: "Майкл Фарадей" }
+  },
+  {
+    text: {
+      en: "The scientist discovers a new type of material or energy, and the engineer discovers a new use for it.",
+      ru: "Учёный открывает новый вид материала или энергии, а инженер находит ему новое применение."
+    },
+    author: { en: "Gordon Lindsay Glegg", ru: "Гордон Линдси Глегг" }
+  },
+  {
+    text: {
+      en: "If you cannot measure it, you cannot improve it.",
+      ru: "Если вы не можете это измерить, вы не можете это улучшить."
+    },
+    author: { en: "Attributed to Lord Kelvin", ru: "Приписывается лорду Кельвину" }
+  }
+];
+
+/* ---------- Photo gallery ----------
+ * To add a photo:
+ * 1. Put it in public/gallery/ (e.g. my-photo.jpg). A smaller copy for the grid is
+ *    optional (e.g. my-photo-thumb.jpg); otherwise use the same file for both.
+ * 2. Copy one block below, change the file names, caption, place and date.
+ * Newest photos first looks best.
+ */
+export type GalleryPhoto = {
+  image: string; // large photo (opens when clicked)
+  thumb: string; // smaller photo shown in the grid
+  caption: Localized;
+  place: Localized;
+  date: string; // e.g. "2024-10" or "2024"
+};
+
+export const gallery: GalleryPhoto[] = [
+  {
+    image: "/gallery/re-week-2024-presenting.jpg",
+    thumb: "/gallery/re-week-2024-presenting-thumb.jpg",
+    caption: { en: "Presenting at RE Week 2024 – Nepal", ru: "Выступление на RE Week 2024 – Nepal" },
+    place: { en: "Kathmandu, Nepal", ru: "Катманду, Непал" },
+    date: "2024-10"
+  },
+  {
+    image: "/gallery/re-week-2024-recognition.jpg",
+    thumb: "/gallery/re-week-2024-recognition-thumb.jpg",
+    caption: { en: "Recognised on stage at RE Week 2024 – Nepal", ru: "Награждение на сцене RE Week 2024 – Nepal" },
+    place: { en: "Kathmandu, Nepal", ru: "Катманду, Непал" },
+    date: "2024-10"
+  },
+  {
+    image: "/gallery/re-week-2024-speaker.jpg",
+    thumb: "/gallery/re-week-2024-speaker-thumb.jpg",
+    caption: { en: "Speaker announcement — RE Week 2024 – Nepal", ru: "Анонс спикера — RE Week 2024 – Nepal" },
+    place: { en: "Kathmandu, Nepal", ru: "Катманду, Непал" },
+    date: "2024-10"
+  },
+  {
+    image: "/gallery/neek-500kva-transformer.jpg",
+    thumb: "/gallery/neek-500kva-transformer-thumb.jpg",
+    caption: { en: "With a NEEK 500 kVA, 11 kV distribution transformer", ru: "Рядом с распределительным трансформатором NEEK 500 кВА, 11 кВ" },
+    place: { en: "Nepal Ekarat Engineering, Nepal", ru: "Nepal Ekarat Engineering, Непал" },
+    date: "2024"
+  },
+  {
+    image: "/gallery/transformer-seminar-kathmandu.jpg",
+    thumb: "/gallery/transformer-seminar-kathmandu-thumb.jpg",
+    caption: { en: "Industry seminar on distribution transformers", ru: "Отраслевой семинар по распределительным трансформаторам" },
+    place: { en: "Kathmandu, Nepal", ru: "Катманду, Непал" },
+    date: "2024"
+  },
+  {
+    image: "/gallery/neek-farewell-1.jpg",
+    thumb: "/gallery/neek-farewell-1-thumb.jpg",
+    caption: { en: "Farewell at Nepal Ekarat Engineering (NEEK)", ru: "Проводы в Nepal Ekarat Engineering (NEEK)" },
+    place: { en: "Nepal", ru: "Непал" },
+    date: "2024-06"
+  },
+  {
+    image: "/gallery/neek-farewell-2.jpg",
+    thumb: "/gallery/neek-farewell-2-thumb.jpg",
+    caption: { en: "Thank-you words from the NEEK team", ru: "Слова благодарности от команды NEEK" },
+    place: { en: "Nepal", ru: "Непал" },
+    date: "2024-06"
+  },
+  {
+    image: "/gallery/substation-site-visit.jpg",
+    thumb: "/gallery/substation-site-visit-thumb.jpg",
+    caption: { en: "Site visit to a high-voltage substation", ru: "На высоковольтной подстанции" },
+    place: { en: "On site", ru: "На объекте" },
+    date: ""
+  }
+];
+
 /* ---------- Contact form ----------
  * Messages are delivered to this address by FormSubmit (formsubmit.co).
  * The FIRST message sends you an activation email — click "Activate" in it once.

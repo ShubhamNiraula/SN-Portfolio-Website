@@ -9,10 +9,13 @@ const en = {
     about: "About",
     experience: "Experience",
     education: "Education",
-    interests: "Interests",
+    interests: "Research",
+    volunteering: "Volunteering",
+    journey: "Journey",
     projects: "Projects",
     blog: "Blog",
     certificates: "Certificates",
+    gallery: "Gallery",
     connect: "Let's connect",
     contact: "Contact",
     openMenu: "Open navigation menu",
@@ -20,11 +23,11 @@ const en = {
     language: "Language"
   },
   hero: {
-    role: "ELECTRICAL & POWER ENGINEER · MS STUDENT AT ITMO",
-    taglineFirst: "Powering systems.",
-    taglineSecond: "Designing a sustainable tomorrow.",
+    role: "Electrical & power engineer · ITMO University",
+    taglineFirst: "Renewable energy integration",
+    taglineSecond: "for weak and rural grids.",
     description:
-      "Master's student in Electrical and Power Engineering at ITMO University, with hands-on experience in utility-scale solar PV and power equipment. Seeking Ph.D. research opportunities in renewable energy integration and intelligent control.",
+      "MS student at ITMO with 45 MW of utility-scale solar experience, seeking Ph.D. research in renewable integration and intelligent control.",
     location: "SAINT PETERSBURG, RUSSIA",
     basedIn: "BASED IN",
     explore: "Explore projects",
@@ -36,20 +39,19 @@ const en = {
     portraitAlt: "Portrait of Shubham Niraula"
   },
   highlights: [
-    { value: "02+", label: "YEARS OF INDUSTRY EXPERIENCE", href: "#experience" },
-    { value: "45 MW", label: "UTILITY-SCALE SOLAR PV", href: "#solar-projects" },
-    { value: "04", label: "CONFERENCE TALKS", href: "#presentations" },
-    { value: "06", label: "CERTIFICATES", href: "#certificates" }
+    { value: "02+", label: "Years in industry", href: "#experience" },
+    { value: "45 MW", label: "Utility-scale solar PV", href: "#solar-projects" },
+    { value: "04", label: "Conference talks", href: "#presentations" },
+    { value: "06", label: "Certificates", href: "#certificates" }
   ],
   about: {
     eyebrow: "A LITTLE ABOUT ME",
     title: "Engineering with purpose.",
     lead:
-      "I'm Shubham — an electrical and power engineer working where renewable energy, power systems and intelligent control meet.",
+      "I work where renewable energy, power systems and intelligent control meet.",
     paragraphs: [
-      "I'm a Master's student in Electrical and Power Engineering at ITMO University, building on a foundation in power systems, renewable energy and control engineering from Kathmandu University.",
-      "Before ITMO, I worked on utility-scale solar PV plants totalling 45 MW in Nepal — design, documentation and commissioning support — took part in initial assessments of smaller projects, and worked with power transformers and distribution equipment up to 33 kV.",
-      "I'm looking for Ph.D. research opportunities in renewable energy integration, intelligent control and automation — building energy-efficient, sustainable technologies for real-world use."
+      "Before ITMO, I designed and commissioned utility-scale solar plants totalling 45 MW in Nepal, assessed smaller projects, and supported transformers and distribution equipment up to 33 kV.",
+      "Now I'm building toward a Ph.D. in renewable energy integration and intelligent control — technology that makes clean power reliable where grids are weakest."
     ]
   },
   experience: {
@@ -65,7 +67,7 @@ const en = {
         place: "Noida, India (Hybrid)",
         date: "JUL 2024 — SEP 2025",
         description:
-          "Designed electrical layouts and PV table arrangements for utility-scale solar plants, including the 10 MW and 15 MW Pashupati Renewables projects, and took part in initial assessments of smaller projects. Performed substation earthing calculations (IEEE Std 80), prepared BOMs and specifications, took part in inspection, testing and commissioning, and used AutoCAD and PVsyst for design and energy forecasting."
+          "Electrical layouts and PV arrangements for the 10 MW and 15 MW Pashupati Renewables plants; substation earthing (IEEE Std 80), BOMs and specifications; inspection, testing and commissioning; AutoCAD and PVsyst design."
       },
       {
         role: "Assistant Engineer",
@@ -74,7 +76,7 @@ const en = {
         place: "Nepal",
         date: "SEP 2023 — JUN 2024",
         description:
-          "Provided technical support for power transformers, on-load tap changers (OLTCs) and distribution equipment, and helped troubleshoot transformer issues in systems up to 33 kV."
+          "Technical support and troubleshooting for power transformers, OLTCs and distribution equipment up to 33 kV."
       },
       {
         role: "Graduate Engineer Trainee — O&M",
@@ -83,7 +85,7 @@ const en = {
         place: "Nepalgunj, Banke, Nepal",
         date: "JUL 2023 — SEP 2023",
         description:
-          "Operation and maintenance (O&M) trainee at Pure Energy's two 10 MW utility-scale solar PV plants in Khajura, Banke — Golyan Group's 20 MW solar power facility."
+          "O&M trainee at Pure Energy's two 10 MW solar PV plants in Khajura, Banke."
       }
     ]
   },
@@ -98,7 +100,7 @@ const en = {
         url: "https://en.itmo.ru/",
         qualification: "MS, Electrical and Power Engineering",
         description:
-          "Saint Petersburg, Russia. Master's program focused on electrical power systems, renewable energy and control engineering.",
+          "Saint Petersburg. Power systems, renewable energy and control.",
         watermark: "ITMO",
         featured: true
       },
@@ -109,7 +111,7 @@ const en = {
         url: "https://ku.edu.np/",
         qualification: "BE, Electrical and Electronics Engineering (Power & Control)",
         description:
-          "School of Engineering, Dhulikhel, Nepal. Undergraduate thesis on PLC-based home automation.",
+          "Dhulikhel, Nepal. Thesis on PLC-based home automation.",
         watermark: "KU",
         featured: false
       }
@@ -117,7 +119,7 @@ const en = {
     recognition: "RECOGNITION",
     scholarshipTitle: "Russian Government Quota Scholarship",
     scholarshipText:
-      "Studying at ITMO University as a recipient of the Russian Government Quota Scholarship.",
+      "Awarded for Master's study at ITMO University.",
     scholarshipYear: "2025"
   },
   interests: {
@@ -148,14 +150,13 @@ const en = {
   },
   projects: {
     eyebrow: "SELECTED WORK",
-    title: "Projects & talks.",
+    title: "Projects.",
     items: [
       {
         category: "UNDERGRADUATE THESIS · 2022 — 2023",
         title: "Home Automation Using PLC",
         paragraphs: [
-          "Undergraduate thesis at Kathmandu University applying industrial control concepts to the automated operation of a residential system, with a Programmable Logic Controller (PLC) as the central processor.",
-          "Sensors monitor conditions in the home, ladder logic controls the appliances, and a touch-panel Human Machine Interface (HMI) supports monitoring and manual control."
+          "Industrial control applied to a home: a PLC runs the appliances with ladder logic, sensors watch conditions, and a touch-panel HMI allows monitoring and manual control."
         ],
         tags: ["PLC", "LADDER LOGIC", "SENSORS", "HMI", "IOT"]
       }
@@ -175,6 +176,41 @@ const en = {
     empty: "New posts are coming soon.",
     back: "Back to all posts",
     postLanguage: "This post is written in"
+  },
+  gallery: {
+    eyebrow: "In the field",
+    title: "Gallery.",
+    open: "Open photo",
+    close: "Close",
+    previous: "Previous photo",
+    next: "Next photo",
+    pause: "Pause slideshow",
+    play: "Play slideshow",
+    viewAll: "View full gallery",
+    back: "Back to home"
+  },
+  research: {
+    eyebrow: "Research",
+    title: "Research.",
+    interestsTitle: "Interests",
+    publicationsTitle: "Publications",
+    talksTitle: "Conference talks",
+    readPaper: "Read the paper"
+  },
+  now: {
+    title: "Currently",
+    updated: "Updated"
+  },
+  volunteering: {
+    eyebrow: "Beyond engineering",
+    title: "Volunteering & leadership.",
+    readMore: "Read more"
+  },
+  journey: {
+    eyebrow: "Places that shaped me",
+    title: "My journey.",
+    countries: "countries",
+    places: "places"
   },
   certificates: {
     eyebrow: "ACHIEVEMENTS",
@@ -205,11 +241,11 @@ const en = {
     ]
   },
   contact: {
-    eyebrow: "HAVE A PROJECT OR AN OPPORTUNITY?",
-    titleFirst: "Let's build",
-    titleSecond: "something meaningful.",
+    eyebrow: "Contact",
+    titleFirst: "Let's work",
+    titleSecond: "together.",
     copy:
-      "Interested in renewable energy, power systems or a research collaboration? Write to me. I'd be glad to connect.",
+      "Research collaboration, Ph.D. position or a project in renewable energy? I'd be glad to hear from you.",
     formTitle: "SEND ME A MESSAGE",
     name: "Your name",
     email: "Your email",
@@ -233,10 +269,13 @@ const ru: Content = {
     about: "Обо мне",
     experience: "Опыт",
     education: "Образование",
-    interests: "Интересы",
+    interests: "Исследования",
+    volunteering: "Волонтёрство",
+    journey: "Путь",
     projects: "Проекты",
     blog: "Блог",
     certificates: "Сертификаты",
+    gallery: "Галерея",
     connect: "Связаться",
     contact: "Контакты",
     openMenu: "Открыть меню",
@@ -244,11 +283,11 @@ const ru: Content = {
     language: "Язык"
   },
   hero: {
-    role: "ИНЖЕНЕР-ЭЛЕКТРОЭНЕРГЕТИК · МАГИСТРАНТ ИТМО",
-    taglineFirst: "Энергия для систем.",
-    taglineSecond: "Проектирую устойчивое будущее.",
+    role: "Инженер-электроэнергетик · Университет ИТМО",
+    taglineFirst: "Интеграция ВИЭ",
+    taglineSecond: "в слабые и сельские сети.",
     description:
-      "Магистрант направления «Электроэнергетика и электротехника» Университета ИТМО с практическим опытом в крупных солнечных электростанциях и силовом оборудовании. Ищу возможности для исследований в аспирантуре в области интеграции ВИЭ и интеллектуального управления.",
+      "Магистрант ИТМО с опытом работы над солнечными электростанциями общей мощностью 45 МВт. Ищу возможность исследований в аспирантуре по интеграции ВИЭ и интеллектуальному управлению.",
     location: "САНКТ-ПЕТЕРБУРГ, РОССИЯ",
     basedIn: "",
     explore: "Проекты",
@@ -260,20 +299,19 @@ const ru: Content = {
     portraitAlt: "Фотография Шубхама Нираулы"
   },
   highlights: [
-    { value: "02+", label: "ГОДА ОПЫТА В ОТРАСЛИ", href: "#experience" },
-    { value: "45 МВт", label: "КРУПНЫЕ СЭС", href: "#solar-projects" },
-    { value: "04", label: "ВЫСТУПЛЕНИЯ НА КОНФЕРЕНЦИЯХ", href: "#presentations" },
-    { value: "06", label: "СЕРТИФИКАТОВ", href: "#certificates" }
+    { value: "02+", label: "Года в отрасли", href: "#experience" },
+    { value: "45 МВт", label: "Крупные СЭС", href: "#solar-projects" },
+    { value: "04", label: "Выступления на конференциях", href: "#presentations" },
+    { value: "06", label: "Сертификатов", href: "#certificates" }
   ],
   about: {
     eyebrow: "НЕМНОГО ОБО МНЕ",
     title: "Инженерия с целью.",
     lead:
-      "Я Шубхам — инженер-электроэнергетик. Меня интересует то, где встречаются возобновляемая энергетика, энергосистемы и интеллектуальное управление.",
+      "Я работаю на стыке возобновляемой энергетики, энергосистем и интеллектуального управления.",
     paragraphs: [
-      "Я учусь в магистратуре Университета ИТМО по направлению «Электроэнергетика и электротехника». Базу в энергосистемах, возобновляемой энергетике и теории управления я получил в Университете Катманду.",
-      "До ИТМО я работал над крупными солнечными электростанциями общей мощностью 45 МВт в Непале — проектирование, документация и пусконаладка, — участвовал в предварительной оценке небольших проектов, а также работал с силовыми трансформаторами и распределительным оборудованием до 33 кВ.",
-      "Я ищу возможности для исследований в аспирантуре в области интеграции ВИЭ, интеллектуального управления и автоматизации — чтобы создавать энергоэффективные и устойчивые технологии для реальной жизни."
+      "До ИТМО я проектировал и вводил в эксплуатацию солнечные электростанции общей мощностью 45 МВт в Непале, оценивал небольшие проекты и работал с трансформаторами и распределительным оборудованием до 33 кВ.",
+      "Сейчас я готовлюсь к аспирантуре в области интеграции ВИЭ и интеллектуального управления — чтобы чистая энергия была надёжной там, где сети слабее всего."
     ]
   },
   experience: {
@@ -289,7 +327,7 @@ const ru: Content = {
         place: "Нойда, Индия (гибридный формат)",
         date: "ИЮЛ 2024 — СЕН 2025",
         description:
-          "Проектировал электрические схемы и раскладку столов ФЭМ для крупных солнечных электростанций, в том числе для проектов Pashupati Renewables мощностью 10 МВт и 15 МВт, участвовал в предварительной оценке небольших проектов. Выполнял расчёты заземления подстанций (IEEE Std 80), готовил спецификации и ведомости материалов, участвовал в инспекциях, испытаниях и пусконаладке, работал в AutoCAD и PVsyst."
+          "Электрические схемы и раскладка ФЭМ для СЭС Pashupati Renewables 10 МВт и 15 МВт; заземление подстанций (IEEE Std 80), спецификации; инспекция, испытания и пусконаладка; проектирование в AutoCAD и PVsyst."
       },
       {
         role: "Младший инженер",
@@ -298,7 +336,7 @@ const ru: Content = {
         place: "Непал",
         date: "СЕН 2023 — ИЮН 2024",
         description:
-          "Оказывал техническую поддержку по силовым трансформаторам, устройствам РПН и распределительному оборудованию, помогал устранять неисправности трансформаторов в сетях до 33 кВ."
+          "Техническая поддержка и поиск неисправностей силовых трансформаторов, РПН и распределительного оборудования до 33 кВ."
       },
       {
         role: "Инженер-стажёр по эксплуатации и обслуживанию (O&M)",
@@ -307,7 +345,7 @@ const ru: Content = {
         place: "Непалгандж, Банке, Непал",
         date: "ИЮЛ 2023 — СЕН 2023",
         description:
-          "Стажировка в службе эксплуатации и технического обслуживания двух солнечных электростанций Pure Energy мощностью по 10 МВт в Хаджуре (Банке) — СЭС Golyan Group общей мощностью 20 МВт."
+          "Стажировка по эксплуатации двух СЭС Pure Energy по 10 МВт в Хаджуре (Банке)."
       }
     ]
   },
@@ -322,7 +360,7 @@ const ru: Content = {
         url: "https://itmo.ru/",
         qualification: "Магистратура, «Электроэнергетика и электротехника»",
         description:
-          "Санкт-Петербург, Россия. Программа с фокусом на электроэнергетические системы, возобновляемую энергетику и теорию управления.",
+          "Санкт-Петербург. Энергосистемы, ВИЭ и управление.",
         watermark: "ИТМО",
         featured: true
       },
@@ -333,7 +371,7 @@ const ru: Content = {
         url: "https://ku.edu.np/",
         qualification: "Бакалавриат, электротехника и электроника (энергетика и управление)",
         description:
-          "Инженерная школа, Дхуликхел, Непал. Выпускная работа — домашняя автоматизация на основе ПЛК.",
+          "Дхуликхел, Непал. Выпускная работа — домашняя автоматизация на ПЛК.",
         watermark: "KU",
         featured: false
       }
@@ -341,7 +379,7 @@ const ru: Content = {
     recognition: "ДОСТИЖЕНИЯ",
     scholarshipTitle: "Стипендия Правительства РФ (квота)",
     scholarshipText:
-      "Обучаюсь в Университете ИТМО по квоте Правительства Российской Федерации.",
+      "Обучение в магистратуре Университета ИТМО.",
     scholarshipYear: "2025"
   },
   interests: {
@@ -372,14 +410,13 @@ const ru: Content = {
   },
   projects: {
     eyebrow: "ИЗБРАННЫЕ РАБОТЫ",
-    title: "Проекты и доклады.",
+    title: "Проекты.",
     items: [
       {
         category: "ВЫПУСКНАЯ РАБОТА · 2022 — 2023",
         title: "Домашняя автоматизация на основе ПЛК",
         paragraphs: [
-          "Выпускная работа в Университете Катманду: применение принципов промышленного управления для автоматизации жилого дома, где центральным процессором служит программируемый логический контроллер (ПЛК).",
-          "Датчики следят за состоянием дома, релейно-контактная логика управляет приборами, а сенсорная панель HMI позволяет контролировать систему и управлять ею вручную."
+          "Промышленное управление для жилого дома: ПЛК управляет приборами, датчики следят за состоянием, а сенсорная панель HMI позволяет контролировать систему вручную."
         ],
         tags: ["ПЛК", "LADDER", "ДАТЧИКИ", "HMI", "IOT"]
       }
@@ -399,6 +436,41 @@ const ru: Content = {
     empty: "Скоро здесь появятся новые записи.",
     back: "Ко всем записям",
     postLanguage: "Язык записи:"
+  },
+  gallery: {
+    eyebrow: "На объектах и мероприятиях",
+    title: "Галерея.",
+    open: "Открыть фото",
+    close: "Закрыть",
+    previous: "Предыдущее фото",
+    next: "Следующее фото",
+    pause: "Пауза",
+    play: "Продолжить",
+    viewAll: "Вся галерея",
+    back: "На главную"
+  },
+  research: {
+    eyebrow: "Наука",
+    title: "Исследования.",
+    interestsTitle: "Интересы",
+    publicationsTitle: "Публикации",
+    talksTitle: "Доклады на конференциях",
+    readPaper: "Читать статью"
+  },
+  now: {
+    title: "Сейчас",
+    updated: "Обновлено"
+  },
+  volunteering: {
+    eyebrow: "Не только инженерия",
+    title: "Волонтёрство и лидерство.",
+    readMore: "Подробнее"
+  },
+  journey: {
+    eyebrow: "Места, которые меня сформировали",
+    title: "Мой путь.",
+    countries: "страны",
+    places: "мест"
   },
   certificates: {
     eyebrow: "ДОСТИЖЕНИЯ",
@@ -429,11 +501,11 @@ const ru: Content = {
     ]
   },
   contact: {
-    eyebrow: "ЕСТЬ ПРОЕКТ ИЛИ ПРЕДЛОЖЕНИЕ?",
-    titleFirst: "Давайте создадим",
-    titleSecond: "что-то значимое.",
+    eyebrow: "Контакты",
+    titleFirst: "Давайте работать",
+    titleSecond: "вместе.",
     copy:
-      "Интересуетесь возобновляемой энергетикой, энергосистемами или научным сотрудничеством? Напишите мне — буду рад знакомству.",
+      "Научное сотрудничество, место в аспирантуре или проект в области ВИЭ? Буду рад вашему письму.",
     formTitle: "НАПИШИТЕ МНЕ",
     name: "Ваше имя",
     email: "Ваш e-mail",

@@ -1,25 +1,23 @@
+import EnergyIcon from "@/components/energy/EnergyIcon";
+import type { SymbolKey } from "@/components/energy/symbols";
+import Reveal from "./Reveal";
+
 type SectionHeadingProps = {
   eyebrow: string;
   title: string;
-  number: string;
-  total?: string;
+  number?: string;
+  icon?: SymbolKey;
 };
 
-export default function SectionHeading({
-  eyebrow,
-  title,
-  number,
-  total = "08"
-}: SectionHeadingProps) {
+export default function SectionHeading({ eyebrow, title, number, icon }: SectionHeadingProps) {
   return (
-    <div className="section-heading">
-      <div>
-        <p className="eyebrow">{eyebrow}</p>
-        <h2>{title}</h2>
-      </div>
-      <span className="section-number">
-        {number} / {total}
+    <Reveal className="section-head">
+      <span className="kicker">
+        {icon && <EnergyIcon name={icon} size={22} className="head-icon" />}
+        {number && <span className="num">{number}</span>}
+        <span>{eyebrow}</span>
       </span>
-    </div>
+      <h2>{title}</h2>
+    </Reveal>
   );
 }

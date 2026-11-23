@@ -6,9 +6,13 @@ import Certificates from "@/components/sections/Certificates";
 import Contact from "@/components/sections/Contact";
 import Education from "@/components/sections/Education";
 import Experience from "@/components/sections/Experience";
+import Moments from "@/components/sections/Moments";
 import Hero from "@/components/sections/Hero";
-import Interests from "@/components/sections/Interests";
+import Journey from "@/components/sections/Journey";
+import Research from "@/components/sections/Research";
+import Volunteering from "@/components/sections/Volunteering";
 import Projects from "@/components/sections/Projects";
+import QuoteBar from "@/components/sections/QuoteBar";
 import Skills from "@/components/sections/Skills";
 import { getPublishedPosts } from "@/lib/blog";
 
@@ -17,16 +21,17 @@ export default function HomePage() {
 
   return (
     <main>
-      <div className="ambient ambient-one" aria-hidden="true" />
-      <div className="ambient ambient-two" aria-hidden="true" />
-
       <Navbar />
+      <QuoteBar />
       <Hero />
       <About />
+      <Moments />
       <Experience />
       <Education />
-      <Interests />
+      <Research />
       <Projects />
+      <Volunteering />
+      <Journey />
       <Blog posts={posts} />
       <Certificates />
       <Skills />

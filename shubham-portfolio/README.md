@@ -102,8 +102,21 @@ site and publishes the `out/` folder to GitHub Pages.
 | Blog links on other sites, conference links, certificates, email | `src/data/site.ts` |
 | Your own blog posts | `content/blog/*.md` (see `content/blog/_how-to-write-a-post.md`) |
 | Certificate files | `public/certificates/` |
+| Gallery photos (+ captions in `gallery` list in `src/data/site.ts`) | `public/gallery/` |
+| Quotes at the top of the page | `quotes` list in `src/data/site.ts` |
+| "Currently" box | `nowItems` + `nowUpdated` in `src/data/site.ts` |
+| Publications | `publications` in `src/data/site.ts` |
+| Volunteering & leadership | `activities` in `src/data/site.ts` |
+| Journey map places | `journey` in `src/data/site.ts` |
+| Link preview picture (LinkedIn/Telegram) | `public/og-image.jpg` (1200×630) |
 | Pictures for blog posts | `public/blog/` |
 | Photo / CV | `public/profile.jpg`, `public/Shubham_Niraula_CV.pdf` |
 
 The contact form sends messages through FormSubmit (formsubmit.co) to the email in `src/data/site.ts`.
 The first message triggers an activation email — click "Activate" once.
+
+## Google search
+`sitemap.xml` and `robots.txt` are generated automatically. To appear in Google faster:
+open https://search.google.com/search-console → Add property → **Domain** → `shubhamniraula.com.np`.
+Google detects Cloudflare and offers to add the verification record automatically. Then submit
+`https://shubhamniraula.com.np/sitemap.xml` under **Sitemaps**.

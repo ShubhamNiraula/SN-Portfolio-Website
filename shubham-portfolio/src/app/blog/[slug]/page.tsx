@@ -39,13 +39,12 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <main>
-      <div className="ambient ambient-one" aria-hidden="true" />
       <Navbar />
-      <article className="post-page page-wrap" lang={post.lang}>
+      <article className="post-page" lang={post.lang}>
         <BackToBlog />
-        <div className="post-meta">
+        <div className="meta" style={{ marginTop: 28 }}>
           <span>{date}</span>
-          <span className="post-lang">{post.lang.toUpperCase()}</span>
+          <span className="badge">{post.lang.toUpperCase()}</span>
         </div>
         <h1>{post.title}</h1>
         {post.summary && <p className="post-summary">{post.summary}</p>}
