@@ -4,8 +4,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { gallery as allPhotos } from "@/data/site";
 
-const gallery = allPhotos.filter((p) => p.slideshow !== false);
 import { useLanguage } from "@/i18n/LanguageProvider";
+import { markBroken, useWorkingPhotos } from "@/lib/workingPhotos";
+
+const slideshowPhotos = allPhotos.filter((p) => p.slideshow !== false);
 
 const INTERVAL = 5500;
 
@@ -13,6 +15,7 @@ const INTERVAL = 5500;
 export default function PhotoSlideshow() {
   const { t, pick } = useLanguage();
   const g = t.gallery;
+  const gallery = useWorkingPhotos(slideshowPhotos);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [userPaused, setUserPaused] = useState(false);
@@ -28,7 +31,12 @@ export default function PhotoSlideshow() {
     return () => window.clearTimeout(id);
   }, [index, paused, userPaused, go, count]);
 
+  useEffect(() => {
+    if (index >= count && count > 0) setIndex(0);
+  }, [index, count]);
+
   if (count === 0) return null;
+  const shown = gallery[Math.min(index, count - 1)];
 
   return (
     <div
@@ -59,7 +67,7 @@ export default function PhotoSlideshow() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img className="slide-backdrop" src={photo.thumb || photo.image} alt="" aria-hidden="true" loading={i < 2 ? "eager" : "lazy"} />
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="slide-photo" src={photo.image} alt={pick(photo.caption)} loading={i < 2 ? "eager" : "lazy"} />
+            <img className="slide-photo" src={photo.image} alt={pick(photo.caption)} loading={i < 2 ? "eager" : "lazy"} onError={() => markBroken(photo.image)} />
           </figure>
         ))}
       </div>
@@ -68,8 +76,8 @@ export default function PhotoSlideshow() {
         <span className="slide-count">
           {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
         </span>
-        <strong>{pick(gallery[index].caption)}</strong>
-        <span className="slide-place">{pick(gallery[index].place)}</span>
+        <strong>{pick(shown.caption)}</strong>
+        <span className="slide-place">{pick(shown.place)}</span>
       </div>
 
       <div className="slide-controls">

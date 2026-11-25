@@ -238,16 +238,6 @@ export const certificates: Certificate[] = [
     year: "2024",
     file: "/certificates/ku-cap-2024.pdf",
     image: "/certificates/ku-cap-2024-preview.jpg"
-  },
-  {
-    title: {
-      en: "Capacity Development Program on Electric Vehicle Technology and Its Importance in Nepal (5-day training)",
-      ru: "Программа повышения квалификации по технологиям электромобилей и их значению для Непала (5-дневное обучение)"
-    },
-    issuer: { en: "Kathmandu University · University Grants Commission Nepal", ru: "Университет Катманду · Комиссия по университетским грантам Непала" },
-    year: "2023",
-    file: "/certificates/ku-ev-training-2023.jpg",
-    image: "/certificates/ku-ev-training-2023-preview.jpg"
   }
 ];
 

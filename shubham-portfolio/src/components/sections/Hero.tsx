@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Download, MapPin } from "lucide-react";
@@ -13,6 +14,8 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Hero() {
   const { t, pick } = useLanguage();
+  // If the cut-out portrait is missing on the server, fall back to the original photo.
+  const [heroSrc, setHeroSrc] = useState(profile.heroImage);
   const name = pick(profile.name);
   const displayName = name
     .split(" ")
@@ -88,7 +91,15 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.15, ease }}
           >
             <div className="portrait">
-              <Image src={profile.heroImage} alt={t.hero.portraitAlt} width={922} height={922} priority />
+              <Image
+                src={heroSrc}
+                alt={t.hero.portraitAlt}
+                width={922}
+                height={922}
+                priority
+                onError={() => setHeroSrc(profile.image)}
+                className={heroSrc === profile.image ? "is-fallback" : undefined}
+              />
             </div>
             <SymbolRotator />
           </motion.div>

@@ -104,6 +104,54 @@ function arc([x1, y1]: [number, number], [x2, y2]: [number, number]) {
   return `M${x1.toFixed(1)} ${y1.toFixed(1)} Q${(mx + sign * nx * bend).toFixed(1)} ${(my + sign * ny * bend).toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`;
 }
 
+/* ---------- Nepal inset (world view) ----------
+ * Five stops sit within a few kilometres of each other in Nepal, so on the
+ * world view they are drawn in a magnified inset instead of on top of each other.
+ */
+const INSET_BOUNDS: Bounds = { lon0: 81.0, lon1: 86.3, lat0: 26.95, lat1: 28.5 };
+/** Label side inside the inset where it differs from the zoomed country view. */
+const INSET_LABEL: Record<string, JourneyStop["label"]> = { chandrauta: "below", nepalgunj: "right" };
+const INSET = (() => {
+  const w = 470;
+  const pad = 26;
+  const head = 30;
+  const k = Math.cos((((INSET_BOUNDS.lat0 + INSET_BOUNDS.lat1) / 2) * Math.PI) / 180);
+  const s = (w - 2 * pad) / ((INSET_BOUNDS.lon1 - INSET_BOUNDS.lon0) * k);
+  const mapH = (INSET_BOUNDS.lat1 - INSET_BOUNDS.lat0) * s;
+  const h = head + mapH + pad;
+  const x = 16;
+  const y = H - 16 - h;
+  return { x, y, w, h, pad, head, k, s };
+})();
+function insetProject(lon: number, lat: number): [number, number] {
+  return [
+    INSET.x + INSET.pad + (lon - INSET_BOUNDS.lon0) * INSET.k * INSET.s,
+    INSET.y + INSET.head + (INSET_BOUNDS.lat1 - lat) * INSET.s
+  ];
+}
+/** Push pins apart a little so close neighbours (Kathmandu / Dhulikhel) don't overlap. */
+function spread(points: Record<string, [number, number]>, min = 30) {
+  const ids = Object.keys(points);
+  const p = Object.fromEntries(ids.map((id) => [id, [...points[id]] as [number, number]]));
+  for (let it = 0; it < 40; it++) {
+    for (let a = 0; a < ids.length; a++)
+      for (let b = a + 1; b < ids.length; b++) {
+        const A = p[ids[a]];
+        const B = p[ids[b]];
+        const dx = B[0] - A[0];
+        const dy = B[1] - A[1];
+        const d = Math.hypot(dx, dy) || 1;
+        if (d >= min) continue;
+        const push = (min - d) / 2;
+        A[0] -= (dx / d) * push;
+        A[1] -= (dy / d) * push;
+        B[0] += (dx / d) * push;
+        B[1] += (dy / d) * push;
+      }
+  }
+  return p;
+}
+
 export default function Journey() {
   const { t, pick } = useLanguage();
   const j = t.journey;
@@ -170,8 +218,66 @@ export default function Journey() {
 
   const visible = (s: JourneyStop) => view === "all" || s.region === view;
   const zoomed = view !== "all";
+  const inInset = (s: JourneyStop) => view === "all" && s.region === "nepal";
+  const insetPos = useMemo(
+    () => spread(Object.fromEntries(journey.filter((s) => s.region === "nepal").map((s) => [s.id, insetProject(s.lon, s.lat)]))),
+    []
+  );
+  const pos = (s: JourneyStop): [number, number] => (inInset(s) ? insetPos[s.id] : project(s.lon, s.lat));
+  const nepalBox = (() => {
+    const b = INSET_BOUNDS;
+    const [x0, y0] = project(b.lon0, b.lat1);
+    const [x1, y1] = project(b.lon1, b.lat0);
+    return { x: x0 - 3, y: y0 - 3, w: x1 - x0 + 6, h: y1 - y0 + 6 };
+  })();
   const regions: ("all" | JourneyRegion)[] = ["all", "nepal", "india", "china", "russia"];
   const countryCount = new Set(journey.map((s) => s.country.en)).size;
+
+  const renderStop = (s: JourneyStop, i: number, labelled: boolean, small = false) => {
+    const off = small ? 17 : 22;
+    const side = small && INSET_LABEL[s.id] ? INSET_LABEL[s.id] : s.label;
+    const [x, y] = pos(s);
+                  return (
+                    <g
+                      key={`${view}-${s.id}`}
+                      className={`jm-stop kind-${s.kind} ${small ? "in-inset" : ""} ${active === s.id ? "is-on" : ""}`}
+                      transform={`translate(${x.toFixed(1)} ${y.toFixed(1)})`}
+                      onMouseEnter={() => {
+                        setActive(s.id);
+                        setHover(s.id);
+                      }}
+                      onMouseLeave={() => {
+                        setActive(null);
+                        setHover(null);
+                      }}
+                      onClick={() => setHover((h) => (h === s.id ? null : s.id))}
+                      tabIndex={0}
+                      role="button"
+                      aria-label={`${i + 1}. ${pick(s.name)} — ${pick(s.note)}`}
+                      onFocus={() => setHover(s.id)}
+                      onBlur={() => setHover(null)}
+                    >
+                      <g className="jm-mark">
+                      <circle r={small ? 15 : labelled ? 22 : 18} className="jm-halo" />
+                      <circle r={small ? 11 : labelled ? 14 : 12} className="jm-pin" />
+                      <text dy="4.5" textAnchor="middle" className="jm-num">
+                        {i + 1}
+                      </text>
+                      {labelled && (
+                        <text
+                          x={side === "left" ? -off : side === "above" || side === "below" ? 0 : off}
+                          y={side === "above" ? -off - 4 : side === "below" ? off + 12 : 0}
+                          dy="5"
+                          textAnchor={side === "left" ? "end" : side === "above" || side === "below" ? "middle" : "start"}
+                          className={small ? "jm-label jm-label-sm" : "jm-label"}
+                        >
+                          {pick(s.name)}
+                        </text>
+                      )}
+                      </g>
+                    </g>
+                  );
+  };
 
   const dots: [number, number][] = [];
   if (!land) for (let x = 10; x < W; x += 22) for (let y = 10; y < H; y += 22) dots.push([x, y]);
@@ -212,7 +318,7 @@ export default function Journey() {
                 ))}
                 {landPath && <path key={view + (fine ? "f" : "c")} d={landPath} className="jm-land" fillRule="evenodd" />}
                 {journey
-                  .filter((s) => s.from && byId[s.from] && (zoomed ? visible(s) && visible(byId[s.from]) : true))
+                  .filter((s) => s.from && byId[s.from] && (zoomed ? visible(s) && visible(byId[s.from]) : !(inInset(s) && inInset(byId[s.from]))))
                   .map((s, i) => {
                     const f = byId[s.from!];
                     const on = active === s.id || active === s.from;
@@ -227,50 +333,41 @@ export default function Journey() {
                       </g>
                     );
                   })}
-                {journey.map((s, i) => {
-                  if (!visible(s)) return null;
-                  const [x, y] = project(s.lon, s.lat);
-                  return (
-                    <g
-                      key={`${view}-${s.id}`}
-                      className={`jm-stop kind-${s.kind} ${active === s.id ? "is-on" : ""}`}
-                      transform={`translate(${x.toFixed(1)} ${y.toFixed(1)})`}
-                      onMouseEnter={() => {
-                        setActive(s.id);
-                        setHover(s.id);
-                      }}
-                      onMouseLeave={() => {
-                        setActive(null);
-                        setHover(null);
-                      }}
-                      onClick={() => setHover((h) => (h === s.id ? null : s.id))}
-                      tabIndex={0}
+                {!zoomed && (
+                  <g className="jm-inset-link" aria-hidden="true">
+                    <rect x={nepalBox.x} y={nepalBox.y} width={nepalBox.w} height={nepalBox.h} rx="3" className="jm-nepal-box" />
+                    <path
+                      d={`M${(nepalBox.x + nepalBox.w * 0.3).toFixed(1)} ${(nepalBox.y + nepalBox.h).toFixed(1)} L${(INSET.x + INSET.w).toFixed(1)} ${(INSET.y + INSET.h * 0.45).toFixed(1)}`}
+                      className="jm-leader"
+                    />
+                  </g>
+                )}
+                {journey.map((s, i) => (visible(s) && !inInset(s) ? renderStop(s, i, zoomed) : null))}
+                {!zoomed && (
+                  <g className="jm-inset">
+                    <rect x={INSET.x} y={INSET.y} width={INSET.w} height={INSET.h} rx="10" className="jm-inset-bg" />
+                    <rect
+                      x={INSET.x + 10}
+                      y={INSET.y + INSET.head - 6}
+                      width={INSET.w - 20}
+                      height={INSET.h - INSET.head - 4}
+                      rx="6"
+                      className="jm-inset-land"
+                    />
+                    <text
+                      x={INSET.x + 14}
+                      y={INSET.y + 21}
+                      className="jm-inset-title"
                       role="button"
-                      aria-label={`${i + 1}. ${pick(s.name)} — ${pick(s.note)}`}
-                      onFocus={() => setHover(s.id)}
-                      onBlur={() => setHover(null)}
+                      tabIndex={0}
+                      onClick={() => setView("nepal")}
+                      onKeyDown={(e) => e.key === "Enter" && setView("nepal")}
                     >
-                      <g className="jm-mark">
-                      <circle r={zoomed ? 22 : 18} className="jm-halo" />
-                      <circle r={zoomed ? 14 : 12} className="jm-pin" />
-                      <text dy="4.5" textAnchor="middle" className="jm-num">
-                        {i + 1}
-                      </text>
-                      {zoomed && (
-                        <text
-                          x={s.label === "left" ? -22 : s.label === "above" || s.label === "below" ? 0 : 22}
-                          y={s.label === "above" ? -26 : s.label === "below" ? 34 : 0}
-                          dy="5"
-                          textAnchor={s.label === "left" ? "end" : s.label === "above" || s.label === "below" ? "middle" : "start"}
-                          className="jm-label"
-                        >
-                          {pick(s.name)}
-                        </text>
-                      )}
-                      </g>
-                    </g>
-                  );
-                })}
+                      {j.views.nepal} ↗
+                    </text>
+                    {journey.map((s, i) => (inInset(s) ? renderStop(s, i, true, true) : null))}
+                  </g>
+                )}
               </g>
             </svg>
             {hover &&
@@ -278,7 +375,7 @@ export default function Journey() {
               visible(byId[hover]) &&
               (() => {
                 const st = byId[hover];
-                const [x, y] = project(st.lon, st.lat);
+                const [x, y] = pos(st);
                 const idx = journey.findIndex((q) => q.id === st.id) + 1;
                 return (
                   <div

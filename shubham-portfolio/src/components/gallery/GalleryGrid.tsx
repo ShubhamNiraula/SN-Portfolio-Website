@@ -3,7 +3,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
-import { gallery } from "@/data/site";
+import { gallery as allPhotos } from "@/data/site";
+import { markBroken, useWorkingPhotos } from "@/lib/workingPhotos";
 import { useLanguage } from "@/i18n/LanguageProvider";
 
 function formatDate(date: string, lang: string) {
@@ -17,13 +18,21 @@ function formatDate(date: string, lang: string) {
 export default function GalleryGrid() {
   const { t, lang, pick } = useLanguage();
   const g = t.gallery;
+  const gallery = useWorkingPhotos(allPhotos);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const close = useCallback(() => setOpenIndex(null), []);
   const step = useCallback(
     (dir: number) => setOpenIndex((i) => (i === null ? i : (i + dir + gallery.length) % gallery.length)),
-    []
+    [gallery.length]
   );
+
+  // If a photo disappears from the list while open, keep the index in range.
+  useEffect(() => {
+    if (openIndex === null) return;
+    if (gallery.length === 0) setOpenIndex(null);
+    else if (openIndex >= gallery.length) setOpenIndex(gallery.length - 1);
+  }, [gallery.length, openIndex]);
 
   useEffect(() => {
     if (openIndex === null) return;
@@ -53,7 +62,7 @@ export default function GalleryGrid() {
             <Reveal key={photo.image} delay={(index % 3) * 0.06} className="gallery-item">
               <button type="button" className="gallery-tile" onClick={() => setOpenIndex(index)} aria-label={`${g.open}: ${pick(photo.caption)}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={photo.thumb || photo.image} alt={pick(photo.caption)} loading="lazy" />
+                <img src={photo.thumb || photo.image} alt={pick(photo.caption)} loading="lazy" onError={() => markBroken(photo.thumb || photo.image)} />
                 <span className="gallery-caption">
                   <span className="gallery-caption-text">{pick(photo.caption)}</span>
                   <span className="gallery-caption-meta">
@@ -111,7 +120,7 @@ export default function GalleryGrid() {
           )}
           <figure className="lightbox-figure" onClick={(e) => e.stopPropagation()}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img key={current.image} src={current.image} alt={pick(current.caption)} />
+            <img key={current.image} src={current.image} alt={pick(current.caption)} onError={() => markBroken(current.image)} />
             <figcaption>
               <strong>{pick(current.caption)}</strong>
               <span>

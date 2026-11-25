@@ -209,6 +209,7 @@ a.card:hover, .card.hoverable:hover { border-color: var(--line-strong); transfor
 .portrait { position: relative; aspect-ratio: 4 / 5; background: transparent; }
 .portrait img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; --fade-y: linear-gradient(to bottom, #000 80%, transparent 100%); --fade-x: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
   -webkit-mask-image: var(--fade-y), var(--fade-x); -webkit-mask-composite: source-in; mask-image: var(--fade-y), var(--fade-x); mask-composite: intersect; }
+.portrait img.is-fallback { object-fit: cover; object-position: center 20%; border-radius: var(--radius-lg); -webkit-mask-image: none; mask-image: none; }
 .symbol-rotator {
   position: absolute; left: -36px; bottom: -32px;
   width: 136px; height: 136px; border-radius: 50%;
@@ -488,6 +489,13 @@ a.cert-card:hover .cert-thumb img { transform: scale(1.04); }
 .jm-label { fill: var(--text); font-size: 15px; font-weight: 500; font-family: var(--sans); paint-order: stroke; stroke: var(--surface); stroke-width: 4px; stroke-linejoin: round; pointer-events: none; }
 .jm-stop.is-on .jm-pin { fill: var(--k); }
 .jm-stop.is-on .jm-num { fill: var(--surface); }
+.jm-nepal-box { fill: color-mix(in srgb, var(--accent) 10%, transparent); stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 4 3; }
+.jm-leader { fill: none; stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 3 4; opacity: .7; }
+.jm-inset-bg { fill: var(--surface); stroke: var(--accent); stroke-width: 1.4; filter: drop-shadow(0 4px 14px rgba(0,0,0,.12)); }
+.jm-inset-land { fill: color-mix(in srgb, var(--surface-2) 80%, var(--bg)); stroke: var(--line); stroke-width: 1; }
+.jm-inset-title { fill: var(--accent); font-family: var(--sans); font-size: 15px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+.jm-inset-title:hover { text-decoration: underline; }
+.jm-label-sm { font-size: 13px; }
 .jm-footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 20px; padding: 12px 10px 4px; }
 .journey-count { color: var(--muted); font-size: 13px; }
 .journey-count strong { font-family: var(--serif); font-size: 22px; color: var(--text); font-weight: 500; }
@@ -685,6 +693,8 @@ a.cert-card:hover .cert-thumb img { transform: scale(1.04); }
   .journey-list { grid-template-columns: minmax(0, 1fr); }
   .jm-tabs button { padding: 7px 13px; font-size: 13px; }
   .jm-mark { transform: scale(1.8); }
+  .jm-stop.in-inset .jm-mark { transform: scale(1.25); }
+  .jm-stop.in-inset .jm-label { display: none; }
   .jm-route-base { stroke-width: 3; }
   .jm-route-flow { stroke-width: 4; }
   .journey-map { padding: 4px; }
