@@ -2,7 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
-import { gallery } from "@/data/site";
+import { gallery as allPhotos } from "@/data/site";
+
+const gallery = allPhotos.filter((p) => p.slideshow !== false);
 import { useLanguage } from "@/i18n/LanguageProvider";
 
 const INTERVAL = 5500;

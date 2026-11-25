@@ -22,6 +22,7 @@ export const profile = {
   name: { en: "SHUBHAM NIRAULA", ru: "ШУБХАМ НИРАУЛА" } as Localized,
   initials: "SN",
   image: "/profile.jpg",
+  heroImage: "/profile-cutout.webp",
   email: "shubhamniraula47@gmail.com",
   academicEmail: "shubhamniraula@niuitmo.ru",
   // CV per language (files are in the public folder).
@@ -43,7 +44,20 @@ export type Article = {
 export const articles: Article[] = [
   {
     title: {
-      en: "From the Plains of Nepal to the Siberian Arctic: My Week in the International Arctic Volunteer Corps",
+      en: "From the Plains of Nepal to the Siberian Arctic: Part 2 of My Week in the International Arctic Volunteer Corps",
+      ru: "С равнин Непала в сибирскую Арктику: часть 2 — моя неделя в Международном арктическом волонтёрском корпусе"
+    },
+    site: "ITMO.NEWS",
+    date: "2026-11-23",
+    url: "https://news.itmo.ru/en/blog/430/",
+    summary: {
+      en: "Days 4–7: a lake swim, a visit to the Khanty village of Kazym, finishing construction work at a natural monument and the flight back to Khanty-Mansiysk.",
+      ru: "Дни 4–7: купание в озере, поездка в хантыйское село Казым, завершение строительных работ на памятнике природы и перелёт в Ханты-Мансийск."
+    }
+  },
+  {
+    title: {
+      en: "From the Plains of Nepal to the Siberian Arctic: My Week in the International Arctic Volunteer Corps (Part 1)",
       ru: "С равнин Непала в сибирскую Арктику: моя неделя в Международном арктическом волонтёрском корпусе"
     },
     site: "ITMO.NEWS",
@@ -144,24 +158,28 @@ export type SolarProject = {
 
 export const solarProjects: SolarProject[] = [
   {
-    name: { en: "Pashupati Renewables Limited (PRL)", ru: "Pashupati Renewables Limited (PRL)" },
-    capacity: "10 MW + 15 MW",
-    location: { en: "Nepal", ru: "Непал" },
-    role: {
-      en: "Design Engineer at REnergo Developers",
-      ru: "Инженер-проектировщик, REnergo Developers"
-    },
-    url: ""
+    name: { en: "Dharamnagar Solar Farm – I", ru: "СЭС Дхарамнагар – I" },
+    capacity: "10 MW",
+    location: { en: "Kapilvastu, Lumbini Province, Nepal · Pashupati Renewables", ru: "Капилвасту, провинция Лумбини, Непал · Pashupati Renewables" },
+    role: { en: "Design Engineer at REnergo Developers", ru: "Инженер-проектировщик, REnergo Developers" },
+    url: "https://www.prpl.com.np/projects/dsf-i/"
   },
   {
-    name: { en: "Pure Energy, Nepalgunj (Golyan Group)", ru: "Pure Energy, Непалгандж (Golyan Group)" },
+    name: { en: "Dharamnagar Solar Farm – II", ru: "СЭС Дхарамнагар – II" },
+    capacity: "15 MW",
+    location: { en: "Kapilvastu, Lumbini Province, Nepal · Pashupati Renewables", ru: "Капилвасту, провинция Лумбини, Непал · Pashupati Renewables" },
+    role: { en: "Design Engineer at REnergo Developers", ru: "Инженер-проектировщик, REnergo Developers" },
+    url: "https://www.prpl.com.np/projects/dsf-ii/"
+  },
+  {
+    name: { en: "Pure Energy I & II (Golyan Group)", ru: "Pure Energy I и II (Golyan Group)" },
     capacity: "10 MW + 10 MW",
     location: { en: "Khajura, Banke, Nepal", ru: "Хаджура, Банке, Непал" },
     role: {
-      en: "Graduate Engineer Trainee — O&M, Golyan Group (Jul–Sep 2023)",
-      ru: "Инженер-стажёр по эксплуатации (O&M), Golyan Group (июль–сентябрь 2023)"
+      en: "Graduate Engineer Trainee — O&M (Jul–Sep 2023)",
+      ru: "Инженер-стажёр по эксплуатации (O&M), июль–сентябрь 2023"
     },
-    url: ""
+    url: "https://pureenergynepal.com/our-ventures/"
   }
 ];
 
@@ -209,7 +227,7 @@ export const certificates: Certificate[] = [
   },
   {
     title: { en: "VI International Olympiad for Foreign Students of Preparatory Faculties", ru: "VI Международная олимпиада для иностранных обучающихся подготовительных факультетов" },
-    issuer: { en: "Kazan, Russia", ru: "Казань" },
+    issuer: { en: "Online", ru: "Онлайн" },
     year: "2026",
     file: "/certificates/international-olympiad-2026.pdf",
     image: "/certificates/international-olympiad-2026-preview.jpg"
@@ -220,16 +238,22 @@ export const certificates: Certificate[] = [
     year: "2024",
     file: "/certificates/ku-cap-2024.pdf",
     image: "/certificates/ku-cap-2024-preview.jpg"
+  },
+  {
+    title: {
+      en: "Capacity Development Program on Electric Vehicle Technology and Its Importance in Nepal (5-day training)",
+      ru: "Программа повышения квалификации по технологиям электромобилей и их значению для Непала (5-дневное обучение)"
+    },
+    issuer: { en: "Kathmandu University · University Grants Commission Nepal", ru: "Университет Катманду · Комиссия по университетским грантам Непала" },
+    year: "2023",
+    file: "/certificates/ku-ev-training-2023.jpg",
+    image: "/certificates/ku-ev-training-2023-preview.jpg"
   }
 ];
 
 /* ---------- "Currently" box (update whenever things change) ---------- */
 export const nowUpdated = "2026-11"; // year-month of your last update
 export const nowItems: Localized[] = [
-  {
-    en: "Preparing my Master's thesis on solid-state transformers for weak and rural grids",
-    ru: "Готовлю магистерскую диссертацию о твердотельных трансформаторах для слабых и сельских сетей"
-  },
   {
     en: "Volunteering at the VI Congress of Young Scientists, Saint Petersburg (December 2026)",
     ru: "Волонтёр VI Конгресса молодых учёных, Санкт-Петербург (декабрь 2026)"
@@ -268,7 +292,7 @@ export const activities: Activity[] = [
     url: ""
   },
   {
-    title: { en: "International youth forum — team project", ru: "Международный молодёжный форум — командный проект" },
+    title: { en: "“Druzhim 47” youth forum", ru: "Форум «Дружим 47»" },
     role: {
       en: "International team project on promoting tourism through international cooperation",
       ru: "Международный командный проект о развитии туризма через международное сотрудничество"
@@ -300,66 +324,99 @@ export const activities: Activity[] = [
       ru: "VI Международная олимпиада для иностранных обучающихся подготовительных факультетов"
     },
     role: { en: "Participant", ru: "Участник" },
-    place: { en: "Kazan", ru: "Казань" },
+    place: { en: "Online", ru: "Онлайн" },
     date: "2026",
     url: ""
   }
 ];
 
 /* ---------- My journey (map) ----------
- * lon/lat = position on the map. "from" draws a route from another stop's id.
+ * Career points on the world map. lon/lat = position.
+ * kind: "study" | "work" | "site" (inspections / project sites) | "event" | "volunteer"
+ * region: which zoom tab the stop belongs to.
+ * from: draws a route from another stop's id.
  */
+export type JourneyKind = "study" | "work" | "site" | "event" | "volunteer";
+export type JourneyRegion = "nepal" | "india" | "china" | "russia";
 export type JourneyStop = {
   id: string;
   name: Localized;
   country: Localized;
   note: Localized;
+  period: string;
+  kind: JourneyKind;
+  region: JourneyRegion;
   lon: number;
   lat: number;
   from?: string;
+  label?: "left" | "right" | "above" | "below"; // where the name sits in zoomed views
 };
+
+const NEPAL = { en: "Nepal", ru: "Непал" };
+const INDIA = { en: "India", ru: "Индия" };
+const CHINA = { en: "China", ru: "Китай" };
+const RUSSIA = { en: "Russia", ru: "Россия" };
+
 export const journey: JourneyStop[] = [
   {
-    id: "ktm", lon: 85.3, lat: 27.7,
-    name: { en: "Kathmandu & Dhulikhel", ru: "Катманду и Дхуликхел" },
-    country: { en: "Nepal", ru: "Непал" },
-    note: { en: "Home · Kathmandu University · NEEK", ru: "Дом · Университет Катманду · NEEK" }
+    id: "dhulikhel", kind: "study", region: "nepal", label: "right", lon: 85.55, lat: 27.62, period: "2018 — 2023",
+    name: { en: "Dhulikhel", ru: "Дхуликхел" }, country: NEPAL,
+    note: { en: "Kathmandu University — BE, Electrical & Electronics · KU CAP-2024 talk", ru: "Университет Катманду — бакалавриат · доклад на KU CAP-2024" }
   },
   {
-    id: "npj", lon: 81.6, lat: 28.05, from: "ktm",
-    name: { en: "Nepalgunj", ru: "Непалгандж" },
-    country: { en: "Nepal", ru: "Непал" },
-    note: { en: "Pure Energy solar plants", ru: "СЭС Pure Energy" }
+    id: "nepalgunj", kind: "work", region: "nepal", lon: 81.62, lat: 28.08, period: "2023", from: "dhulikhel",
+    name: { en: "Nepalgunj (Khajura)", ru: "Непалгандж (Хаджура)" }, country: NEPAL,
+    note: { en: "Pure Energy 2 × 10 MW solar — Graduate Engineer Trainee, O&M", ru: "СЭС Pure Energy 2 × 10 МВт — инженер-стажёр по эксплуатации" }
   },
   {
-    id: "noida", lon: 77.4, lat: 28.6, from: "ktm",
-    name: { en: "Noida", ru: "Нойда" },
-    country: { en: "India", ru: "Индия" },
-    note: { en: "Design Engineer, REnergo", ru: "Инженер-проектировщик, REnergo" }
+    id: "kathmandu", kind: "work", region: "nepal", label: "above", lon: 85.32, lat: 27.71, period: "2023 — 2024", from: "nepalgunj",
+    name: { en: "Kathmandu", ru: "Катманду" }, country: NEPAL,
+    note: { en: "Nepal Ekarat Engineering (NEEK) — Assistant Engineer · RE Week 2024 speaker", ru: "Nepal Ekarat Engineering (NEEK) — младший инженер · спикер RE Week 2024" }
   },
   {
-    id: "china", lon: 104.0, lat: 33.0, from: "ktm",
-    name: { en: "China", ru: "Китай" },
-    country: { en: "China", ru: "Китай" },
-    note: { en: "Travel", ru: "Поездка" }
+    id: "hetauda", kind: "site", region: "nepal", label: "below", lon: 85.03, lat: 27.43, period: "2023 — 2024", from: "kathmandu",
+    name: { en: "Hetauda", ru: "Хетауда" }, country: NEPAL,
+    note: { en: "NEEK transformer manufacturing plant", ru: "Завод трансформаторов NEEK" }
   },
   {
-    id: "spb", lon: 30.3, lat: 59.9, from: "ktm",
-    name: { en: "Saint Petersburg & Gatchina", ru: "Санкт-Петербург и Гатчина" },
-    country: { en: "Russia", ru: "Россия" },
-    note: { en: "ITMO University · forums", ru: "Университет ИТМО · форумы" }
+    id: "chennai", kind: "site", region: "india", lon: 80.27, lat: 13.08, period: "2023 — 2024", from: "kathmandu",
+    name: { en: "Chennai", ru: "Ченнаи" }, country: INDIA,
+    note: { en: "Wilson transformer inspection", ru: "Инспекция трансформаторов Wilson" }
   },
   {
-    id: "kazan", lon: 49.1, lat: 55.8, from: "spb",
-    name: { en: "Kazan", ru: "Казань" },
-    country: { en: "Russia", ru: "Россия" },
-    note: { en: "International Olympiad", ru: "Международная олимпиада" }
+    id: "noida", kind: "work", region: "india", lon: 77.39, lat: 28.54, period: "2024 — 2025", from: "kathmandu",
+    name: { en: "Noida", ru: "Нойда" }, country: INDIA,
+    note: { en: "REnergo Developers — Design Engineer (hybrid)", ru: "REnergo Developers — инженер-проектировщик (гибридно)" }
   },
   {
-    id: "hmao", lon: 67.5, lat: 62.5, from: "spb",
-    name: { en: "Khanty-Mansiysk & Beloyarsky", ru: "Ханты-Мансийск и Белоярский" },
-    country: { en: "Russia", ru: "Россия" },
-    note: { en: "Arctic Volunteer Corps", ru: "Арктический волонтёрский корпус" }
+    id: "chandrauta", kind: "site", region: "nepal", lon: 83.0, lat: 27.62, period: "2024 — 2025", from: "noida",
+    name: { en: "Chandrauta (Kapilvastu)", ru: "Чандраута (Капилвасту)" }, country: NEPAL,
+    note: { en: "Pashupati Renewables — 10 MW + 15 MW Dharamnagar solar farms", ru: "Pashupati Renewables — СЭС Дхарамнагар 10 МВт + 15 МВт" }
+  },
+  {
+    id: "changzhou", kind: "site", region: "china", label: "above", lon: 119.97, lat: 31.81, period: "2024 — 2025", from: "noida",
+    name: { en: "Changzhou", ru: "Чанчжоу" }, country: CHINA,
+    note: { en: "Trina Solar — solar module inspection", ru: "Trina Solar — инспекция солнечных модулей" }
+  },
+  {
+    id: "ningbo", kind: "site", region: "china", lon: 121.55, lat: 29.87, period: "2024 — 2025", from: "changzhou",
+    name: { en: "Ningbo", ru: "Нинбо" }, country: CHINA,
+    note: { en: "Ginlong (Solis) Technologies — visit", ru: "Ginlong (Solis) Technologies — визит" }
+  },
+  {
+    id: "spb", kind: "study", region: "russia", lon: 30.31, lat: 59.94, period: "2025 —", from: "kathmandu",
+    name: { en: "Saint Petersburg", ru: "Санкт-Петербург" }, country: RUSSIA,
+    note: { en: "ITMO University — MS · Druzhim 47 forum in Gatchina", ru: "Университет ИТМО — магистратура · форум «Дружим 47» в Гатчине" }
+  },
+  {
+    id: "khanty", kind: "volunteer", region: "russia", lon: 69.02, lat: 61.0, period: "2026", from: "spb",
+    name: { en: "Khanty-Mansiysk", ru: "Ханты-Мансийск" }, country: RUSSIA,
+    note: { en: "International Arctic Volunteer Corps", ru: "Международный арктический волонтёрский корпус" }
+  },
+  {
+    id: "beloyarsky", kind: "volunteer", region: "russia", lon: 66.67, lat: 63.71, period: "2026", from: "khanty",
+    name: { en: "Beloyarsky", ru: "Белоярский" }, country: RUSSIA,
+    note: { en: "Builders team — access ramp for the district administration", ru: "Строительная команда — пандус для администрации района" }
   }
 ];
 
@@ -426,9 +483,274 @@ export type GalleryPhoto = {
   caption: Localized;
   place: Localized;
   date: string; // e.g. "2024-10" or "2024"
+  slideshow?: boolean; // set to false to show only on the Gallery page, not in the homepage slideshow
 };
 
 export const gallery: GalleryPhoto[] = [
+  {
+    image: "/gallery/arctic-speaking.jpg",
+    thumb: "/gallery/arctic-speaking-thumb.jpg",
+    caption: { en: "Speaking at the International Arctic Volunteer Corps", ru: "Выступление в Международном арктическом волонтёрском корпусе" },
+    place: { en: "Khanty-Mansi region, Russia", ru: "ХМАО — Югра, Россия" },
+    date: "2026-08"
+  },
+  {
+    image: "/gallery/arctic-stage.jpg",
+    thumb: "/gallery/arctic-stage-thumb.jpg",
+    caption: { en: "On stage with the international volunteer team", ru: "На сцене с международной командой волонтёров" },
+    place: { en: "Khanty-Mansi region, Russia", ru: "ХМАО — Югра, Россия" },
+    date: "2026-08"
+  },
+  {
+    image: "/gallery/arctic-team-presentation.jpg",
+    thumb: "/gallery/arctic-team-presentation-thumb.jpg",
+    caption: { en: "Presenting our team's work on stage", ru: "Презентация работы нашей команды" },
+    place: { en: "Khanty-Mansi region, Russia", ru: "ХМАО — Югра, Россия" },
+    date: "2026-08",
+    slideshow: false
+  },
+  {
+    image: "/gallery/arctic-building-ramp.jpg",
+    thumb: "/gallery/arctic-building-ramp-thumb.jpg",
+    caption: { en: "Building an access ramp with the builders team", ru: "Строим пандус вместе со строительной командой" },
+    place: { en: "Beloyarsky district, Russia", ru: "Белоярский район, Россия" },
+    date: "2026-08"
+  },
+  {
+    image: "/gallery/arctic-bread-oven.jpg",
+    thumb: "/gallery/arctic-bread-oven-thumb.jpg",
+    caption: { en: "Baking bread in a traditional clay oven", ru: "Печём хлеб в традиционной глиняной печи" },
+    place: { en: "Khanty-Mansi region, Russia", ru: "ХМАО — Югра, Россия" },
+    date: "2026-08"
+  },
+  {
+    image: "/gallery/arctic-traditional-dress.jpg",
+    thumb: "/gallery/arctic-traditional-dress-thumb.jpg",
+    caption: { en: "In traditional northern dress at a cultural camp", ru: "В традиционной северной одежде на этнолагере" },
+    place: { en: "Khanty-Mansi region, Russia", ru: "ХМАО — Югра, Россия" },
+    date: "2026-08"
+  },
+  {
+    image: "/gallery/arctic-team-walk.jpg",
+    thumb: "/gallery/arctic-team-walk-thumb.jpg",
+    caption: { en: "Exploring Beloyarsky with the international team", ru: "Знакомство с Белоярским вместе с международной командой" },
+    place: { en: "Beloyarsky, Russia", ru: "Белоярский, Россия" },
+    date: "2026-08",
+    slideshow: false
+  },
+  {
+    image: "/gallery/arctic-lecture.jpg",
+    thumb: "/gallery/arctic-lecture-thumb.jpg",
+    caption: { en: "Listening to a lecture during the programme", ru: "На лекции во время программы" },
+    place: { en: "Khanty-Mansi region, Russia", ru: "ХМАО — Югра, Россия" },
+    date: "2026-08",
+    slideshow: false
+  },
+  {
+    image: "/gallery/arctic-closing.jpg",
+    thumb: "/gallery/arctic-closing-thumb.jpg",
+    caption: { en: "Closing ceremony of the Arctic Volunteer Corps", ru: "Закрытие Арктического волонтёрского корпуса" },
+    place: { en: "Khanty-Mansi region, Russia", ru: "ХМАО — Югра, Россия" },
+    date: "2026-08"
+  },
+  {
+    image: "/gallery/arctic-dance-evening.jpg",
+    thumb: "/gallery/arctic-dance-evening-thumb.jpg",
+    caption: { en: "Dance evening with fellow volunteers", ru: "Танцевальный вечер с волонтёрами" },
+    place: { en: "Khanty-Mansi region, Russia", ru: "ХМАО — Югра, Россия" },
+    date: "2026-08",
+    slideshow: false
+  },
+  {
+    image: "/gallery/arctic-cultural-evening.jpg",
+    thumb: "/gallery/arctic-cultural-evening-thumb.jpg",
+    caption: { en: "Cultural evening with international volunteers", ru: "Культурный вечер с иностранными волонтёрами" },
+    place: { en: "Khanty-Mansi region, Russia", ru: "ХМАО — Югра, Россия" },
+    date: "2026-08",
+    slideshow: false
+  },
+  {
+    image: "/gallery/itmo-congress-participants.jpg",
+    thumb: "/gallery/itmo-congress-participants-thumb.jpg",
+    caption: { en: "Presenting my survey study on learning Russian", ru: "Представляю исследование об изучении русского языка" },
+    place: { en: "ITMO University, Saint Petersburg", ru: "Университет ИТМО, Санкт-Петербург" },
+    date: "2026-04"
+  },
+  {
+    image: "/gallery/itmo-congress-results.jpg",
+    thumb: "/gallery/itmo-congress-results-thumb.jpg",
+    caption: { en: "Sharing results: how language experience shapes learning", ru: "Результаты: как языковой опыт влияет на обучение" },
+    place: { en: "ITMO University, Saint Petersburg", ru: "Университет ИТМО, Санкт-Петербург" },
+    date: "2026-04",
+    slideshow: false
+  },
+  {
+    image: "/gallery/student-conference-methodology.jpg",
+    thumb: "/gallery/student-conference-methodology-thumb.jpg",
+    caption: { en: "Presenting the research methodology at a student conference", ru: "Рассказываю о методологии исследования на студенческой конференции" },
+    place: { en: "Saint Petersburg", ru: "Санкт-Петербург" },
+    date: "2026-04"
+  },
+  {
+    image: "/gallery/saint-petersburg-marble-hall.jpg",
+    thumb: "/gallery/saint-petersburg-marble-hall-thumb.jpg",
+    caption: { en: "Exploring Saint Petersburg's architecture", ru: "Архитектура Санкт-Петербурга" },
+    place: { en: "Saint Petersburg", ru: "Санкт-Петербург" },
+    date: "2026",
+    slideshow: false
+  },
+  {
+    image: "/gallery/himalayan-energy-expo-2024.jpg",
+    thumb: "/gallery/himalayan-energy-expo-2024-thumb.jpg",
+    caption: { en: "At the Himalayan Energy Expo, Bhrikutimandap", ru: "На выставке Himalayan Energy Expo, Бхрикутимандап" },
+    place: { en: "Kathmandu, Nepal", ru: "Катманду, Непал" },
+    date: "2024-04"
+  },
+  {
+    image: "/gallery/schneider-neek-innovation-day-2024.jpg",
+    thumb: "/gallery/schneider-neek-innovation-day-2024-thumb.jpg",
+    caption: { en: "Schneider Electric \u00d7 NEEK Innovation Day 2024", ru: "Schneider Electric × NEEK Innovation Day 2024" },
+    place: { en: "Kathmandu, Nepal", ru: "Катманду, Непал" },
+    date: "2024"
+  },
+  {
+    image: "/gallery/neek-compact-substation-launch.jpg",
+    thumb: "/gallery/neek-compact-substation-launch-thumb.jpg",
+    caption: { en: "With a compact substation at its product launch", ru: "Рядом с комплектной подстанцией на презентации продукта" },
+    place: { en: "Kathmandu, Nepal", ru: "Катманду, Непал" },
+    date: "2024",
+    slideshow: false
+  },
+  {
+    image: "/gallery/schneider-neek-event.jpg",
+    thumb: "/gallery/schneider-neek-event-thumb.jpg",
+    caption: { en: "At the Schneider Electric and NEEK event", ru: "На мероприятии Schneider Electric и NEEK" },
+    place: { en: "Kathmandu, Nepal", ru: "Катманду, Непал" },
+    date: "2024",
+    slideshow: false
+  },
+  {
+    image: "/gallery/neek-seminar-group.jpg",
+    thumb: "/gallery/neek-seminar-group-thumb.jpg",
+    caption: { en: "Group photo at the NEEK distribution transformer seminar", ru: "Общее фото на семинаре NEEK по распределительным трансформаторам" },
+    place: { en: "Kathmandu, Nepal", ru: "Катманду, Непал" },
+    date: "2024",
+    slideshow: false
+  },
+  {
+    image: "/gallery/industry-event-discussion.jpg",
+    thumb: "/gallery/industry-event-discussion-thumb.jpg",
+    caption: { en: "Discussion at an industry event", ru: "Обсуждение на отраслевом мероприятии" },
+    place: { en: "Nepal", ru: "Непал" },
+    date: "2024",
+    slideshow: false
+  },
+  {
+    image: "/gallery/neek-team.jpg",
+    thumb: "/gallery/neek-team-thumb.jpg",
+    caption: { en: "With the team at Nepal Ekarat Engineering (NEEK)", ru: "С командой Nepal Ekarat Engineering (NEEK)" },
+    place: { en: "Nepal", ru: "Непал" },
+    date: "2024",
+    slideshow: false
+  },
+  {
+    image: "/gallery/neek-colleagues.jpg",
+    thumb: "/gallery/neek-colleagues-thumb.jpg",
+    caption: { en: "With colleagues at the NEEK office", ru: "С коллегами в офисе NEEK" },
+    place: { en: "Nepal", ru: "Непал" },
+    date: "2024",
+    slideshow: false
+  },
+  {
+    image: "/gallery/trina-solar-inspection.jpg",
+    thumb: "/gallery/trina-solar-inspection-thumb.jpg",
+    caption: { en: "Solar module quality inspection at Trina Solar", ru: "Инспекция качества солнечных модулей на заводе Trina Solar" },
+    place: { en: "Changzhou, China", ru: "Чанчжоу, Китай" },
+    date: ""
+  },
+  {
+    image: "/gallery/ginlong-solis-visit.jpg",
+    thumb: "/gallery/ginlong-solis-visit-thumb.jpg",
+    caption: { en: "Visit to Ginlong (Solis) Technologies", ru: "Визит в Ginlong (Solis) Technologies" },
+    place: { en: "China", ru: "Китай" },
+    date: ""
+  },
+  {
+    image: "/gallery/ginlong-solis-visit-2.jpg",
+    thumb: "/gallery/ginlong-solis-visit-2-thumb.jpg",
+    caption: { en: "With the team during the Ginlong (Solis) visit", ru: "С командой во время визита в Ginlong (Solis)" },
+    place: { en: "China", ru: "Китай" },
+    date: "",
+    slideshow: false
+  },
+  {
+    image: "/gallery/solar-plant-site.jpg",
+    thumb: "/gallery/solar-plant-site-thumb.jpg",
+    caption: { en: "At a utility-scale solar plant", ru: "На крупной солнечной электростанции" },
+    place: { en: "Nepal", ru: "Непал" },
+    date: ""
+  },
+  {
+    image: "/gallery/pure-energy-transformer.jpg",
+    thumb: "/gallery/pure-energy-transformer-thumb.jpg",
+    caption: { en: "At the plant transformer, Pure Energy solar project", ru: "У трансформатора СЭС Pure Energy" },
+    place: { en: "Khajura, Banke, Nepal", ru: "Хаджура, Банке, Непал" },
+    date: "2023"
+  },
+  {
+    image: "/gallery/rooftop-solar.jpg",
+    thumb: "/gallery/rooftop-solar-thumb.jpg",
+    caption: { en: "On a rooftop solar installation", ru: "На крышной солнечной электростанции" },
+    place: { en: "Nepal", ru: "Непал" },
+    date: "",
+    slideshow: false
+  },
+  {
+    image: "/gallery/substation-inspection.jpg",
+    thumb: "/gallery/substation-inspection-thumb.jpg",
+    caption: { en: "Site inspection at a substation", ru: "Инспекция на подстанции" },
+    place: { en: "Nepal", ru: "Непал" },
+    date: ""
+  },
+  {
+    image: "/gallery/field-testing.jpg",
+    thumb: "/gallery/field-testing-thumb.jpg",
+    caption: { en: "On-site testing with the engineering team", ru: "Полевые испытания с инженерной командой" },
+    place: { en: "Nepal", ru: "Непал" },
+    date: "",
+    slideshow: false
+  },
+  {
+    image: "/gallery/nea-substation-construction.jpg",
+    thumb: "/gallery/nea-substation-construction-thumb.jpg",
+    caption: { en: "At an NEA substation construction site", ru: "На строительстве подстанции NEA" },
+    place: { en: "Nepal", ru: "Непал" },
+    date: ""
+  },
+  {
+    image: "/gallery/nea-substation-transformer.jpg",
+    thumb: "/gallery/nea-substation-transformer-thumb.jpg",
+    caption: { en: "Power transformer installation at an NEA substation", ru: "Монтаж силового трансформатора на подстанции NEA" },
+    place: { en: "Nepal", ru: "Непал" },
+    date: "",
+    slideshow: false
+  },
+  {
+    image: "/gallery/receiving-certificate.jpg",
+    thumb: "/gallery/receiving-certificate-thumb.jpg",
+    caption: { en: "Receiving a certificate", ru: "Вручение сертификата" },
+    place: { en: "Nepal", ru: "Непал" },
+    date: "",
+    slideshow: false
+  },
+  {
+    image: "/gallery/formal-portrait.jpg",
+    thumb: "/gallery/formal-portrait-thumb.jpg",
+    caption: { en: "Portrait", ru: "Портрет" },
+    place: { en: "", ru: "" },
+    date: "",
+    slideshow: false
+  },
   {
     image: "/gallery/re-week-2024-presenting.jpg",
     thumb: "/gallery/re-week-2024-presenting-thumb.jpg",
@@ -448,7 +770,8 @@ export const gallery: GalleryPhoto[] = [
     thumb: "/gallery/re-week-2024-speaker-thumb.jpg",
     caption: { en: "Speaker announcement — RE Week 2024 – Nepal", ru: "Анонс спикера — RE Week 2024 – Nepal" },
     place: { en: "Kathmandu, Nepal", ru: "Катманду, Непал" },
-    date: "2024-10"
+    date: "2024-10",
+    slideshow: false
   },
   {
     image: "/gallery/neek-500kva-transformer.jpg",
@@ -476,7 +799,8 @@ export const gallery: GalleryPhoto[] = [
     thumb: "/gallery/neek-farewell-2-thumb.jpg",
     caption: { en: "Thank-you words from the NEEK team", ru: "Слова благодарности от команды NEEK" },
     place: { en: "Nepal", ru: "Непал" },
-    date: "2024-06"
+    date: "2024-06",
+    slideshow: false
   },
   {
     image: "/gallery/substation-site-visit.jpg",

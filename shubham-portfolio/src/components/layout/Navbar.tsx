@@ -41,7 +41,7 @@ export default function Navbar() {
     { label: t.nav.interests, href: "/#research" },
     { label: t.nav.volunteering, href: "/#volunteering" },
     { label: t.nav.blog, href: "/#blog" },
-    { label: t.nav.certificates, href: "/#certificates" },
+    { label: t.nav.certificates, href: "/certificates/" },
     { label: t.nav.gallery, href: "/gallery/" }
   ];
   const name = pick(profile.name);

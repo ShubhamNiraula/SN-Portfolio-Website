@@ -88,7 +88,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.15, ease }}
           >
             <div className="portrait">
-              <Image src={profile.image} alt={t.hero.portraitAlt} width={600} height={600} priority />
+              <Image src={profile.heroImage} alt={t.hero.portraitAlt} width={922} height={922} priority />
             </div>
             <SymbolRotator />
           </motion.div>

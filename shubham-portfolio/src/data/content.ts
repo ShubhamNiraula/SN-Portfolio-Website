@@ -24,10 +24,10 @@ const en = {
   },
   hero: {
     role: "Electrical & power engineer · ITMO University",
-    taglineFirst: "Renewable energy integration",
-    taglineSecond: "for weak and rural grids.",
+    taglineFirst: "Engineering a brighter, cleaner future",
+    taglineSecond: "— from Nepal to the world.",
     description:
-      "MS student at ITMO with 45 MW of utility-scale solar experience, seeking Ph.D. research in renewable integration and intelligent control.",
+      "Electrical and power engineer, now pursuing a Master's at ITMO University. I've worked on 45 MW of utility-scale solar in Nepal and am looking for Ph.D. research in renewable energy integration and intelligent control.",
     location: "SAINT PETERSBURG, RUSSIA",
     basedIn: "BASED IN",
     explore: "Explore projects",
@@ -40,9 +40,8 @@ const en = {
   },
   highlights: [
     { value: "02+", label: "Years in industry", href: "#experience" },
-    { value: "45 MW", label: "Utility-scale solar PV", href: "#solar-projects" },
-    { value: "04", label: "Conference talks", href: "#presentations" },
-    { value: "06", label: "Certificates", href: "#certificates" }
+    { value: "45+ MW", label: "Utility-scale solar PV", href: "#solar-projects" },
+    { value: "5+", label: "Conference participation", href: "#presentations" }
   ],
   about: {
     eyebrow: "A LITTLE ABOUT ME",
@@ -207,16 +206,20 @@ const en = {
     readMore: "Read more"
   },
   journey: {
-    eyebrow: "Places that shaped me",
+    eyebrow: "Career map",
     title: "My journey.",
     countries: "countries",
-    places: "places"
+    places: "places",
+    views: { all: "All", nepal: "Nepal", india: "India", china: "China", russia: "Russia" },
+    kinds: { study: "Study", work: "Work", site: "Sites & inspections", event: "Events", volunteer: "Volunteering" }
   },
   certificates: {
     eyebrow: "ACHIEVEMENTS",
     title: "Certificates.",
     view: "View certificate",
-    pending: "Certificate coming soon"
+    pending: "Certificate coming soon",
+    exploreAll: "Explore all certificates",
+    back: "Back to home"
   },
   skills: {
     eyebrow: "WHAT I WORK WITH",
@@ -284,10 +287,10 @@ const ru: Content = {
   },
   hero: {
     role: "Инженер-электроэнергетик · Университет ИТМО",
-    taglineFirst: "Интеграция ВИЭ",
-    taglineSecond: "в слабые и сельские сети.",
+    taglineFirst: "Создаю более светлое и чистое будущее",
+    taglineSecond: "— от Непала до всего мира.",
     description:
-      "Магистрант ИТМО с опытом работы над солнечными электростанциями общей мощностью 45 МВт. Ищу возможность исследований в аспирантуре по интеграции ВИЭ и интеллектуальному управлению.",
+      "Инженер-электроэнергетик, магистрант Университета ИТМО. Работал над солнечными электростанциями общей мощностью 45 МВт в Непале; ищу возможность исследований в аспирантуре по интеграции ВИЭ и интеллектуальному управлению.",
     location: "САНКТ-ПЕТЕРБУРГ, РОССИЯ",
     basedIn: "",
     explore: "Проекты",
@@ -300,9 +303,8 @@ const ru: Content = {
   },
   highlights: [
     { value: "02+", label: "Года в отрасли", href: "#experience" },
-    { value: "45 МВт", label: "Крупные СЭС", href: "#solar-projects" },
-    { value: "04", label: "Выступления на конференциях", href: "#presentations" },
-    { value: "06", label: "Сертификатов", href: "#certificates" }
+    { value: "45+ МВт", label: "Крупные СЭС", href: "#solar-projects" },
+    { value: "5+", label: "Участие в конференциях", href: "#presentations" }
   ],
   about: {
     eyebrow: "НЕМНОГО ОБО МНЕ",
@@ -467,16 +469,20 @@ const ru: Content = {
     readMore: "Подробнее"
   },
   journey: {
-    eyebrow: "Места, которые меня сформировали",
+    eyebrow: "Карта карьеры",
     title: "Мой путь.",
     countries: "страны",
-    places: "мест"
+    places: "мест",
+    views: { all: "Все", nepal: "Непал", india: "Индия", china: "Китай", russia: "Россия" },
+    kinds: { study: "Учёба", work: "Работа", site: "Объекты и инспекции", event: "Мероприятия", volunteer: "Волонтёрство" }
   },
   certificates: {
     eyebrow: "ДОСТИЖЕНИЯ",
     title: "Сертификаты.",
     view: "Открыть сертификат",
-    pending: "Сертификат скоро появится"
+    pending: "Сертификат скоро появится",
+    exploreAll: "Все сертификаты",
+    back: "На главную"
   },
   skills: {
     eyebrow: "С ЧЕМ Я РАБОТАЮ",
